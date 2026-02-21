@@ -138,17 +138,17 @@ function ProgramCardItem({ program }: { program: ProgramCard }) {
         <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center mb-5 ml-auto">
           <Icon className="w-6 h-6 text-amber-500" />
         </div>
-        <h3 className="font-semibold text-slate-800 text-base leading-snug mb-6 min-h-[44px]">
+        <h3 className="font-semibold text-slate-800 text-sm md:text-base leading-snug mb-6 min-h-[40px] md:min-h-[44px]">
           {program.title}
         </h3>
         <div className="flex gap-2 mt-auto">
           <Link href={program.href}>
-            <button className="px-5 py-2 text-sm font-semibold rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors">
+            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors">
               View
             </button>
           </Link>
           <Link href="/contact">
-            <button className="px-5 py-2 text-sm font-semibold rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors">
+            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors">
               Enquire
             </button>
           </Link>
@@ -224,13 +224,13 @@ export default function ProgramShowcase() {
               <button
                 key={tab.label}
                 onClick={() => setActiveTab(i)}
-                className={`flex flex-col items-center gap-2 px-6 py-3 rounded-lg transition-all text-base font-semibold ${
+                className={`flex flex-col items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all text-xs md:text-base font-semibold ${
                   isActive
                     ? "text-blue-700 border-b-2 border-blue-700"
                     : "text-slate-500 hover:text-slate-700"
                 }`}
               >
-                <TabIcon className="w-8 h-8" />
+                <TabIcon className="w-5 h-5 md:w-8 md:h-8" />
                 <span>{tab.label}</span>
               </button>
             );
@@ -253,7 +253,7 @@ export default function ProgramShowcase() {
                 <button
                   key={sub.label}
                   onClick={() => setActiveSub(i)}
-                  className={`px-6 py-2.5 rounded-full text-base font-medium border transition-colors ${
+                  className={`px-4 md:px-6 py-1.5 md:py-2.5 rounded-full text-xs md:text-base font-medium border transition-colors ${
                     isActive
                       ? "bg-blue-700 text-white border-blue-700"
                       : "bg-white text-slate-600 border-slate-300 hover:border-blue-400 hover:text-blue-700"

@@ -51,7 +51,7 @@ export default function Hero() {
               <div className="w-full px-4 md:px-10 lg:px-16">
                 <div className="max-w-[52%] md:max-w-xl">
                   {/* Stats */}
-                  <div className="flex flex-wrap gap-x-3 md:gap-x-10 gap-y-1 md:gap-y-4 mb-3 md:mb-8">
+                  <div className="grid grid-cols-2 md:flex md:flex-wrap gap-x-3 md:gap-x-10 gap-y-2 md:gap-y-4 mb-3 md:mb-8">
                     {[
                       { label: "Helped build", value: "50+", desc: "Partners" },
                       { label: "Students", value: "10K+", desc: "Impacted" },
