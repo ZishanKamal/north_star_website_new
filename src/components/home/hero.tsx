@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="pt-16 overflow-hidden bg-white">
+    <section className="pt-20 md:pt-24 overflow-hidden bg-white">
 
       {/* ── Banner with overlay on all screen sizes ── */}
       <div className="relative">

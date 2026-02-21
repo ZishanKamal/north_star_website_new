@@ -58,9 +58,9 @@ export function Footer() {
               <Image
                 src="/north-star-logo.png"
                 alt={siteConfig.name}
-                width={250}
-                height={75}
-                className="h-[60px] w-auto"
+                width={500}
+                height={150}
+                className="h-[60px] md:h-[120px] w-auto"
               />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">

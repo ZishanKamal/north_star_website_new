@@ -48,15 +48,15 @@ export function Header() {
         )}
       >
         <div className="px-4 sm:px-6 lg:px-10">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-20 md:h-24 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
                 src="/north-star-logo.png"
                 alt={siteConfig.name}
-                width={200}
-                height={60}
-                className="h-[48px] w-auto"
+                width={400}
+                height={120}
+                className="h-[72px] md:h-[96px] w-auto"
                 priority
               />
             </Link>
