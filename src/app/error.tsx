@@ -23,7 +23,7 @@ export default function Error({
           <AlertTriangle className="h-8 w-8 text-destructive" />
         </div>
         <h2 className="text-2xl font-bold">Something went wrong</h2>
-        <p className="text-muted-foreground">
+        <p className="text-slate-500">
           We encountered an unexpected error. Please try again or return to the
           homepage.
         </p>

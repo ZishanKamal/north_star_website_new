@@ -34,7 +34,7 @@ export default function TestimonialCarousel() {
   const current = testimonials[activeIndex];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-slate-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,10 +43,10 @@ export default function TestimonialCarousel() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
             What Our Partners Say
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
             Hear from the institutions that have transformed their students&apos;
             outcomes through our programs.
           </p>
@@ -63,9 +63,9 @@ export default function TestimonialCarousel() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="bg-background rounded-2xl p-8 md:p-12 shadow-lg border"
+            className="bg-white rounded-xl p-8 md:p-12 shadow-sm border border-slate-200"
           >
-            <Quote className="w-8 h-8 text-primary/20 mb-4" />
+            <Quote className="w-8 h-8 text-blue-200 mb-4" />
 
             {/* Video embed if available */}
             {current.videoUrl && showVideo ? (
@@ -112,13 +112,13 @@ export default function TestimonialCarousel() {
               })()
             ) : null}
 
-            <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-8">
+            <blockquote className="text-lg md:text-xl text-slate-700 leading-relaxed mb-8">
               &ldquo;{current.quote}&rdquo;
             </blockquote>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full border-2 border-black dark:border-white bg-background flex items-center justify-center flex-shrink-0">
-                <span className="text-sm font-bold text-foreground">
+              <div className="w-12 h-12 rounded-full border-2 border-slate-300 bg-white flex items-center justify-center flex-shrink-0">
+                <span className="text-sm font-bold text-slate-700">
                   {current.name
                     .split(" ")
                     .filter((p) => !["Dr.", "Mr.", "Mrs.", "Ms.", "Prof."].includes(p))
@@ -131,7 +131,7 @@ export default function TestimonialCarousel() {
                 <p className="font-semibold text-blue-600">
                   {current.name}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-slate-500">
                   {current.role}, {current.institution}
                 </p>
               </div>
@@ -142,7 +142,7 @@ export default function TestimonialCarousel() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-full border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
+              className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50 transition-all"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -159,8 +159,8 @@ export default function TestimonialCarousel() {
                   }}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === activeIndex
-                      ? "bg-primary w-8"
-                      : "bg-primary/20 hover:bg-primary/40"
+                      ? "bg-blue-700 w-8"
+                      : "bg-slate-300 hover:bg-slate-400"
                   }`}
                   aria-label={`View testimonial ${index + 1}`}
                 />
@@ -169,7 +169,7 @@ export default function TestimonialCarousel() {
 
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
+              className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-50 transition-all"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />

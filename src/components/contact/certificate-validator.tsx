@@ -58,13 +58,13 @@ export default function CertificateValidator() {
           className="max-w-2xl mx-auto"
         >
           <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center mx-auto mb-4">
               <Award className="w-7 h-7" />
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-2">
               Certificate Validation
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-slate-500">
               Verify the authenticity of a North Star certificate. Enter the
               details below and we&apos;ll send the validation result to your email.
             </p>
@@ -78,7 +78,7 @@ export default function CertificateValidator() {
                     <Check className="w-7 h-7" />
                   </div>
                   <p className="font-semibold text-lg mb-1">Verification Sent!</p>
-                  <p className="text-sm text-muted-foreground">{message}</p>
+                  <p className="text-sm text-slate-500">{message}</p>
                   <Button
                     variant="outline"
                     size="sm"
@@ -99,7 +99,7 @@ export default function CertificateValidator() {
                       value={certificateId}
                       onChange={(e) => setCertificateId(e.target.value)}
                       required
-                      className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                       placeholder="e.g. NS-2025-00123"
                     />
                   </div>
@@ -113,7 +113,7 @@ export default function CertificateValidator() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                       placeholder="you@example.com"
                     />
                   </div>
@@ -127,7 +127,6 @@ export default function CertificateValidator() {
 
                   <Button
                     type="submit"
-                    variant="gradient"
                     className="w-full"
                     disabled={status === "loading"}
                   >

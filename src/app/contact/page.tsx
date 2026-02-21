@@ -116,25 +116,24 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/3" />
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="pt-32 pb-16 bg-slate-50">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200 text-sm font-medium text-blue-700 mb-6">
               <Mail className="w-4 h-4" />
               Get In Touch
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Let&apos;s Start a{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="text-blue-700">
                 Conversation
               </span>
             </h1>
-            <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
+            <p className="max-w-2xl mx-auto text-lg text-slate-500">
               Whether you&apos;re an institution looking to partner or an individual
               exploring our programs — we&apos;d love to hear from you.
             </p>
@@ -163,14 +162,14 @@ export default function ContactPage() {
                   transition={{ delay: index * 0.1 }}
                   className="block"
                 >
-                  <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <Card className="h-full hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                     <CardContent className="p-5 flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center flex-shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
                         <p className="text-sm font-semibold">{info.label}</p>
-                        <p className="text-xs text-muted-foreground mt-1">
+                        <p className="text-xs text-slate-500 mt-1">
                           {info.value}
                         </p>
                       </div>
@@ -192,15 +191,15 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex rounded-xl bg-muted p-1 mb-8"
+              className="flex rounded-lg bg-slate-100 p-1 mb-8"
             >
               <button
                 onClick={() => setActiveTab("institutional")}
                 className={
                   "flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-sm font-medium transition-all " +
                   (activeTab === "institutional"
-                    ? "bg-background shadow text-foreground"
-                    : "text-muted-foreground hover:text-foreground")
+                    ? "bg-white shadow-sm text-slate-900"
+                    : "text-slate-500 hover:text-slate-700")
                 }
               >
                 <Building2 className="w-4 h-4" />
@@ -211,8 +210,8 @@ export default function ContactPage() {
                 className={
                   "flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-sm font-medium transition-all " +
                   (activeTab === "individual"
-                    ? "bg-background shadow text-foreground"
-                    : "text-muted-foreground hover:text-foreground")
+                    ? "bg-white shadow-sm text-slate-900"
+                    : "text-slate-500 hover:text-slate-700")
                 }
               >
                 <Users className="w-4 h-4" />
@@ -237,7 +236,7 @@ export default function ContactPage() {
                       <h3 className="text-xl font-bold mb-2">
                         Message Sent Successfully!
                       </h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-slate-500">
                         We&apos;ll get back to you within 24 hours.
                       </p>
                     </div>
@@ -254,7 +253,7 @@ export default function ContactPage() {
                             value={formState.name}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                            className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                             placeholder="Your name"
                           />
                         </div>
@@ -268,7 +267,7 @@ export default function ContactPage() {
                             value={formState.email}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                            className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                             placeholder="you@example.com"
                           />
                         </div>
@@ -284,7 +283,7 @@ export default function ContactPage() {
                             name="phone"
                             value={formState.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                            className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                             placeholder="+91 XXXXX XXXXX"
                           />
                         </div>
@@ -299,7 +298,7 @@ export default function ContactPage() {
                               value={formState.institution}
                               onChange={handleChange}
                               required
-                              className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                              className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                               placeholder="Your school or college name"
                             />
                           </div>
@@ -312,7 +311,7 @@ export default function ContactPage() {
                               name="subject"
                               value={formState.subject}
                               onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                              className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                             >
                               <option value="">Select a topic</option>
                               <option value="enrollment">Program Enrollment</option>
@@ -334,7 +333,7 @@ export default function ContactPage() {
                             name="role"
                             value={formState.role}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                            className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                           >
                             <option value="">Select your role</option>
                             <option value="principal">Principal</option>
@@ -357,7 +356,7 @@ export default function ContactPage() {
                           onChange={handleChange}
                           required
                           rows={5}
-                          className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"
+                          className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all resize-none"
                           placeholder={
                             activeTab === "institutional"
                               ? "Tell us about your institution's training needs..."
@@ -369,7 +368,6 @@ export default function ContactPage() {
                       <Button
                         type="submit"
                         size="lg"
-                        variant="gradient"
                         className="w-full"
                         disabled={isSubmitting}
                       >
@@ -395,7 +393,7 @@ export default function ContactPage() {
       <FreeDemoForm />
 
       {/* FAQs */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -406,7 +404,7 @@ export default function ContactPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
               Find answers to common questions about our programs and partnerships.
             </p>
           </motion.div>
@@ -424,13 +422,13 @@ export default function ContactPage() {
                   onClick={() =>
                     setExpandedFaq(expandedFaq === index ? null : index)
                   }
-                  className="w-full text-left bg-background rounded-xl border p-5 hover:shadow-md transition-all"
+                  className="w-full text-left bg-white rounded-lg border border-slate-200 p-5 hover:shadow-md transition-all"
                 >
                   <div className="flex items-center justify-between gap-4">
                     <h3 className="font-semibold text-sm">{faq.question}</h3>
                     <ChevronDown
                       className={
-                        "w-5 h-5 text-muted-foreground flex-shrink-0 transition-transform " +
+                        "w-5 h-5 text-slate-400 flex-shrink-0 transition-transform " +
                         (expandedFaq === index ? "rotate-180" : "")
                       }
                     />
@@ -439,7 +437,7 @@ export default function ContactPage() {
                     <motion.p
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
-                      className="text-sm text-muted-foreground mt-3 leading-relaxed"
+                      className="text-sm text-slate-500 mt-3 leading-relaxed"
                     >
                       {faq.answer}
                     </motion.p>
@@ -462,7 +460,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl overflow-hidden border shadow-sm"
+              className="rounded-xl overflow-hidden border shadow-sm"
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.748!2d85.3096!3d23.3441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRali+Grand+Mall%2C+Main+Road%2C+Ranchi+834001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
@@ -482,7 +480,7 @@ export default function ContactPage() {
       {/* Hours */}
       <section className="py-12">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-slate-500">
             {siteConfig.hours.weekdays} | {siteConfig.hours.saturday}
           </p>
         </div>

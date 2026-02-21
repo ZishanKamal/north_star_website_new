@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -50,46 +50,39 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          {/* Organization JSON-LD Structured Data */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "EducationalOrganization",
-                name: "North Star",
-                url: "https://northstaronline.in",
-                logo: "https://northstaronline.in/north-star-logo.png",
-                description:
-                  "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
-                address: {
-                  "@type": "PostalAddress",
-                  streetAddress: "01 4th Floor, Rali Grand Mall, Main Road",
-                  addressLocality: "Ranchi",
-                  addressRegion: "Jharkhand",
-                  postalCode: "834001",
-                  addressCountry: "IN",
-                },
-                telephone: "+91 9241959311",
-                email: "connect@northstaronline.in",
-                sameAs: [],
-              }),
-            }}
-          />
-        </ThemeProvider>
+    <html lang="en">
+      <body className={`${poppins.variable} font-sans antialiased bg-white text-slate-800`}>
+        <div className="relative min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
+        {/* Organization JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              name: "North Star",
+              url: "https://northstaronline.in",
+              logo: "https://northstaronline.in/north-star-logo.png",
+              description:
+                "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "01 4th Floor, Rali Grand Mall, Main Road",
+                addressLocality: "Ranchi",
+                addressRegion: "Jharkhand",
+                postalCode: "834001",
+                addressCountry: "IN",
+              },
+              telephone: "+91 9241959311",
+              email: "connect@northstaronline.in",
+              sameAs: [],
+            }),
+          }}
+        />
       </body>
     </html>
   );

@@ -42,15 +42,15 @@ const iconMap: { [key: string]: React.ElementType } = {
 const colorMap: {
   [key: string]: { gradient: string; light: string; dark: string };
 } = {
-  rose: { gradient: "from-rose-500 to-pink-500", light: "bg-rose-50", dark: "dark:bg-rose-950/30" },
-  purple: { gradient: "from-purple-500 to-violet-500", light: "bg-purple-50", dark: "dark:bg-purple-950/30" },
-  blue: { gradient: "from-blue-500 to-indigo-500", light: "bg-blue-50", dark: "dark:bg-blue-950/30" },
-  orange: { gradient: "from-orange-500 to-amber-500", light: "bg-orange-50", dark: "dark:bg-orange-950/30" },
-  green: { gradient: "from-green-500 to-emerald-500", light: "bg-green-50", dark: "dark:bg-green-950/30" },
-  cyan: { gradient: "from-cyan-500 to-blue-500", light: "bg-cyan-50", dark: "dark:bg-cyan-950/30" },
-  violet: { gradient: "from-violet-500 to-purple-500", light: "bg-violet-50", dark: "dark:bg-violet-950/30" },
-  pink: { gradient: "from-pink-500 to-rose-500", light: "bg-pink-50", dark: "dark:bg-pink-950/30" },
-  amber: { gradient: "from-amber-500 to-yellow-500", light: "bg-amber-50", dark: "dark:bg-amber-950/30" },
+  rose: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
+  purple: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "" },
+  blue: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
+  orange: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
+  green: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "" },
+  cyan: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
+  violet: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "" },
+  pink: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
+  amber: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "" },
 };
 
 interface ProgramContentProps {
@@ -76,16 +76,11 @@ export default function ProgramContent({ program }: ProgramContentProps) {
     <>
       {/* Hero */}
       <section className={`relative pt-32 pb-20 ${colors.light} ${colors.dark} overflow-hidden`}>
-        <div className="absolute inset-0 overflow-hidden">
-          <div className={`absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-r ${colors.gradient} opacity-10 rounded-full blur-3xl`} />
-          <div className={`absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-r ${colors.gradient} opacity-10 rounded-full blur-3xl`} />
-        </div>
-
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="mb-8">
             <Link
               href="/open-programs"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-700 transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Open Programs
@@ -95,10 +90,10 @@ export default function ProgramContent({ program }: ProgramContentProps) {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="flex items-center gap-4 mb-6">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${colors.gradient} flex items-center justify-center shadow-lg`}>
+                <div className={`w-16 h-16 rounded-2xl ${colors.gradient} flex items-center justify-center shadow-lg`}>
                   <Icon className="h-8 w-8 text-white" />
                 </div>
-                <span className={`px-4 py-1.5 bg-gradient-to-r ${colors.gradient} text-white text-sm font-medium rounded-full capitalize`}>
+                <span className={`px-4 py-1.5 ${colors.gradient} text-white text-sm font-medium rounded-lg capitalize`}>
                   {program.category.replace("-", " ")}
                 </span>
               </div>
@@ -107,7 +102,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                 {program.title}
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-xl text-slate-500 mb-8">
                 {program.tagline}
               </p>
 
@@ -125,7 +120,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="relative">
-              <div className={`aspect-video rounded-3xl bg-gradient-to-r ${colors.gradient} shadow-2xl overflow-hidden`}>
+              <div className={`aspect-video rounded-xl ${colors.gradient} shadow-lg overflow-hidden`}>
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Icon className="h-24 w-24 text-white/50" />
@@ -143,9 +138,9 @@ export default function ProgramContent({ program }: ProgramContentProps) {
             <div className="lg:col-span-2 space-y-12">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h2 className="text-2xl font-bold mb-6">About This Program</h2>
-                <div className="prose prose-lg dark:prose-invert max-w-none">
+                <div className="prose prose-lg max-w-none">
                   {program.description.split("\n\n").map((paragraph, i) => (
-                    <p key={i} className="text-muted-foreground leading-relaxed">
+                    <p key={i} className="text-slate-500 leading-relaxed">
                       {paragraph}
                     </p>
                   ))}
@@ -154,13 +149,13 @@ export default function ProgramContent({ program }: ProgramContentProps) {
 
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h2 className="text-2xl font-bold mb-6">Program Objective</h2>
-                <Card className={`${colors.light} ${colors.dark} border-0`}>
+                <Card className="bg-slate-50 border-0">
                   <CardContent className="p-6">
                     <div className="flex gap-4">
-                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-r ${colors.gradient} flex items-center justify-center`}>
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl ${colors.gradient} flex items-center justify-center`}>
                         <Target className="h-6 w-6 text-white" />
                       </div>
-                      <p className="text-foreground/80">{program.objective}</p>
+                      <p className="text-slate-600">{program.objective}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -170,15 +165,15 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                 <h2 className="text-2xl font-bold mb-6">What You&apos;ll Get</h2>
                 <div className="grid sm:grid-cols-2 gap-6">
                   {features.map((feature, index) => (
-                    <Card key={index} className="hover:shadow-lg transition-shadow">
+                    <Card key={index} className="hover:shadow-md transition-shadow">
                       <CardContent className="p-6">
                         <div className="flex gap-4">
-                          <div className={`flex-shrink-0 w-12 h-12 rounded-xl ${colors.light} ${colors.dark} flex items-center justify-center`}>
-                            <feature.icon className="h-6 w-6 text-primary" />
+                          <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
+                            <feature.icon className="h-6 w-6 text-blue-700" />
                           </div>
                           <div>
                             <h3 className="font-semibold mb-1">{feature.label}</h3>
-                            <p className="text-sm text-muted-foreground">{feature.description}</p>
+                            <p className="text-sm text-slate-500">{feature.description}</p>
                           </div>
                         </div>
                       </CardContent>
@@ -197,7 +192,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                 className="sticky top-28"
               >
                 <Card className="overflow-hidden">
-                  <div className={`h-4 bg-gradient-to-r ${colors.gradient}`} />
+                  <div className={`h-4 ${colors.gradient}`} />
                   <CardContent className="p-6 space-y-6">
                     <h3 className="text-xl font-bold">Get Started Today</h3>
                     <ul className="space-y-3">
@@ -208,7 +203,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                         "Access to materials",
                         "Community support",
                       ].map((item, index) => (
-                        <li key={index} className="flex items-center gap-3 text-muted-foreground">
+                        <li key={index} className="flex items-center gap-3 text-slate-500">
                           <Check className="h-5 w-5 text-green-500" />
                           {item}
                         </li>
@@ -228,9 +223,9 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                         </a>
                       </Button>
                     </div>
-                    <p className="text-center text-sm text-muted-foreground">
+                    <p className="text-center text-sm text-slate-500">
                       Have questions?{" "}
-                      <Link href="/contact" className="text-primary hover:underline">
+                      <Link href="/contact" className="text-blue-700 hover:underline">
                         Contact us
                       </Link>
                     </p>
@@ -244,7 +239,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
 
       {/* Related Programs */}
       {relatedPrograms.length > 0 && (
-        <section className="py-24 bg-muted/30">
+        <section className="py-24 bg-slate-50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -253,7 +248,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
               className="text-center mb-12"
             >
               <h2 className="text-3xl font-bold mb-4">Related Programs</h2>
-              <p className="text-muted-foreground">Explore other programs in the same category</p>
+              <p className="text-slate-500">Explore other programs in the same category</p>
             </motion.div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -271,18 +266,18 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                   >
                     <Link href={`/open-programs/${related.slug}`}>
                       <Card className="group h-full cursor-pointer hover:scale-[1.02] transition-all duration-300">
-                        <div className={`h-24 bg-gradient-to-r ${relatedColors.gradient} rounded-t-2xl relative`}>
+                        <div className={`h-24 ${relatedColors.gradient} rounded-t-xl relative`}>
                           <div className="absolute bottom-3 left-4">
-                            <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                            <div className="w-10 h-10 rounded-lg bg-white/30 flex items-center justify-center">
                               <RelatedIcon className="h-5 w-5 text-white" />
                             </div>
                           </div>
                         </div>
                         <CardContent className="p-5">
-                          <h3 className="font-semibold group-hover:text-primary transition-colors mb-2">
+                          <h3 className="font-semibold group-hover:text-blue-700 transition-colors mb-2">
                             {related.title}
                           </h3>
-                          <p className="text-sm text-muted-foreground line-clamp-2">{related.tagline}</p>
+                          <p className="text-sm text-slate-500 line-clamp-2">{related.tagline}</p>
                         </CardContent>
                       </Card>
                     </Link>
@@ -300,7 +295,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <Award className="h-16 w-16 mx-auto text-yellow-500 mb-6" />
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-slate-500 mb-8">
               Join our community of learners and transform your skills with North Star.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

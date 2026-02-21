@@ -47,14 +47,14 @@ export default function OpenProgramsPreview() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200 text-sm font-medium text-blue-700 mb-4">
             <Users className="w-4 h-4" />
             Individual Enrollment
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
             Open Programs
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
             Our signature programs are also available for individual enrollment
             — explore soft skills, technical, and career-readiness courses.
           </p>
@@ -79,16 +79,16 @@ export default function OpenProgramsPreview() {
                   href={`/open-programs/${program.slug}`}
                   className="group block h-full"
                 >
-                  <div className="h-full rounded-xl border bg-background p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                  <div className="h-full rounded-lg border border-slate-200 bg-white p-4 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
                     <div
-                      className={`w-10 h-10 rounded-lg bg-gradient-to-r ${gradientClass} flex items-center justify-center mb-3`}
+                      className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-3"
                     >
-                      <Icon className="w-5 h-5 text-white" />
+                      <Icon className="w-5 h-5 text-blue-700" />
                     </div>
-                    <h3 className="font-semibold text-sm group-hover:text-primary transition-colors">
+                    <h3 className="font-semibold text-sm text-slate-800 group-hover:text-blue-700 transition-colors">
                       {program.shortTitle}
                     </h3>
-                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                    <p className="text-xs text-slate-500 mt-1 line-clamp-2">
                       {program.tagline}
                     </p>
                   </div>
@@ -105,7 +105,7 @@ export default function OpenProgramsPreview() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-10"
         >
-          <p className="text-sm text-muted-foreground mb-4">
+          <p className="text-sm text-slate-500 mb-4">
             Also available as institutional programs for schools and colleges.
           </p>
           <Link href="/open-programs">

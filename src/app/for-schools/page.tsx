@@ -21,17 +21,16 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 const colorMap: Record<string, { bg: string; text: string; border: string }> = {
-  rose: { bg: "bg-rose-500/10", text: "text-rose-500", border: "border-rose-500/20" },
-  purple: { bg: "bg-purple-500/10", text: "text-purple-500", border: "border-purple-500/20" },
-  blue: { bg: "bg-blue-500/10", text: "text-blue-500", border: "border-blue-500/20" },
+  rose: { bg: "bg-blue-50", text: "text-blue-700", border: "border-slate-200" },
+  purple: { bg: "bg-blue-50", text: "text-blue-700", border: "border-slate-200" },
+  blue: { bg: "bg-blue-50", text: "text-blue-700", border: "border-slate-200" },
 };
 
 export default function ForSchoolsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-background to-orange-500/3" />
+      <section className="pt-32 pb-16 bg-slate-50">
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -39,17 +38,17 @@ export default function ForSchoolsPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-500/10 border border-rose-500/20 text-sm font-medium text-rose-600 mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200 text-sm font-medium text-blue-700 mb-6">
               <School className="w-4 h-4" />
               For Schools (K-12)
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900">
               Building Strong{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="text-blue-700">
                 Foundations
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
               Our school programs develop emotional intelligence, cognitive readiness,
               and communication skills — setting students up for lifelong success.
             </p>
@@ -72,20 +71,20 @@ export default function ForSchoolsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`rounded-2xl border ${colors.border} bg-gradient-to-r from-background to-muted/30 p-8 md:p-10`}
+                  className={`rounded-xl border ${colors.border} bg-white p-8 md:p-10`}
                 >
                   <div className="grid md:grid-cols-3 gap-8">
                     <div className="md:col-span-2">
-                      <div className={`w-12 h-12 rounded-xl ${colors.bg} ${colors.text} flex items-center justify-center mb-4`}>
+                      <div className={`w-12 h-12 rounded-lg ${colors.bg} ${colors.text} flex items-center justify-center mb-4`}>
                         <Icon className="w-6 h-6" />
                       </div>
-                      <h3 className="text-2xl font-bold mb-3">{program.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <h3 className="text-2xl font-bold mb-3 text-slate-900">{program.title}</h3>
+                      <p className="text-slate-500 leading-relaxed">
                         {program.description}
                       </p>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                      <h4 className="font-semibold text-sm uppercase tracking-wider text-slate-400 mb-4">
                         Key Outcomes
                       </h4>
                       <ul className="space-y-3">
@@ -106,7 +105,7 @@ export default function ForSchoolsPage() {
       </section>
 
       {/* Why Schools Choose Us */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -117,7 +116,7 @@ export default function ForSchoolsPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Why Schools Choose North Star
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-slate-500">
               We understand that young minds need more than just academics.
             </p>
           </motion.div>
@@ -143,10 +142,10 @@ export default function ForSchoolsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-background rounded-2xl border p-6 text-center"
+                className="bg-white rounded-xl border border-slate-200 p-6 text-center"
               >
-                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <h3 className="font-bold text-lg mb-2 text-slate-900">{item.title}</h3>
+                <p className="text-sm text-slate-500">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -165,7 +164,7 @@ export default function ForSchoolsPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               How Our Partnership Works
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
               A simple, seamless process to bring transformative programs to your school.
             </p>
           </motion.div>
@@ -180,11 +179,11 @@ export default function ForSchoolsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center relative"
               >
-                <div className="w-12 h-12 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center mx-auto mb-4 text-lg font-bold">
+                <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-700 flex items-center justify-center mx-auto mb-4 text-lg font-bold">
                   {step.step}
                 </div>
-                <h3 className="font-bold text-lg mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
+                <h3 className="font-bold text-lg mb-2 text-slate-900">{step.title}</h3>
+                <p className="text-sm text-slate-500">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -192,7 +191,7 @@ export default function ForSchoolsPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -216,15 +215,15 @@ export default function ForSchoolsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-background rounded-2xl border p-8 relative"
+                  className="bg-white rounded-xl border border-slate-200 p-8 relative"
                 >
-                  <Quote className="absolute top-4 right-4 w-8 h-8 text-rose-500/10" />
-                  <p className="text-muted-foreground leading-relaxed mb-6 italic">
+                  <Quote className="absolute top-4 right-4 w-8 h-8 text-blue-100" />
+                  <p className="text-slate-600 leading-relaxed mb-6 italic">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-rose-500/10 flex items-center justify-center">
-                      <span className="text-sm font-bold text-rose-500">
+                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+                      <span className="text-sm font-bold text-blue-700">
                         {testimonial.name
                           .split(" ")
                           .filter((p) => !["Dr.", "Mr.", "Mrs.", "Ms.", "Prof."].includes(p))
@@ -235,7 +234,7 @@ export default function ForSchoolsPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-sm">{testimonial.name}</p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text-slate-500">
                         {testimonial.role}, {testimonial.institution}
                       </p>
                     </div>
@@ -258,12 +257,12 @@ export default function ForSchoolsPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Bring North Star to Your School
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-slate-500 mb-8">
               Let&apos;s discuss how our programs can benefit your students and institution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" variant="gradient">
+                <Button size="lg">
                   Schedule a Discussion
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>

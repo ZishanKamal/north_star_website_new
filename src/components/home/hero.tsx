@@ -1,136 +1,148 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/data";
+
+const banners = [
+  { src: "/images/hero/banner-boy.png", alt: "Professional training" },
+  { src: "/images/hero/banner-girl.png", alt: "Student empowerment" },
+];
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % banners.length);
+    }, 10000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-24">
-      {/* Background — clean white with subtle blue accents (StackRoute-inspired) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-50/60 via-white to-white dark:from-blue-950/20 dark:via-background dark:to-background" />
-
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section className="relative pt-16 overflow-hidden bg-white">
+      {/* Banner images - crossfade, shown in full */}
+      <AnimatePresence mode="wait">
         <motion.div
-          className="absolute -top-20 right-0 w-[500px] h-[500px] bg-blue-400/8 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 -left-20 w-[400px] h-[400px] bg-indigo-400/6 rounded-full blur-3xl"
-          animate={{ scale: [1.15, 1, 1.15], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute top-1/3 left-1/2 w-[300px] h-[300px] bg-violet-400/5 rounded-full blur-3xl"
-          animate={{ opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="relative w-full"
+        >
+          <Image
+            src={banners[current].src}
+            alt={banners[current].alt}
+            width={1920}
+            height={800}
+            className="w-full h-auto block"
+            priority
+            sizes="100vw"
+          />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-50 border border-blue-200 text-sm font-medium text-blue-700 dark:bg-blue-950/50 dark:border-blue-800 dark:text-blue-300 mb-8"
-          >
-            <Building2 className="w-4 h-4" />
-            Trusted Institutional Training Partner
-          </motion.div>
+          {/* Overlay content — positioned on top of the banner */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="container mx-auto px-4 md:px-8">
+              <div className="max-w-2xl">
+                {/* Stats Row - gold numbers */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="flex flex-wrap gap-x-10 gap-y-4 mb-8"
+                >
+                  {[
+                    { label: "Institutional", value: "50+", desc: "Partners" },
+                    { label: "Students", value: "10K+", desc: "Impacted" },
+                    { label: "Programs", value: "200+", desc: "Delivered" },
+                    { label: "Partner", value: "95%", desc: "Satisfaction" },
+                  ].map((stat, index) => (
+                    <motion.div
+                      key={stat.desc}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                    >
+                      <p className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-0.5 drop-shadow-sm">
+                        {stat.label}
+                      </p>
+                      <p className="text-4xl md:text-5xl font-bold text-amber-500 leading-none drop-shadow-sm">
+                        {stat.value}
+                      </p>
+                      <p className="text-xs text-white mt-0.5 font-medium drop-shadow-sm">
+                        {stat.desc}
+                      </p>
+                    </motion.div>
+                  ))}
+                </motion.div>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
-          >
-            <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent">
-              {siteConfig.tagline}
-            </span>
-          </motion.h1>
+                {/* Main Tagline */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-tight mb-5 drop-shadow-md"
+                >
+                  Developing Leaders,
+                  <br />
+                  Empowering Institutions
+                </motion.h1>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-4 font-light"
-          >
-            {siteConfig.subtitle}
-          </motion.p>
+                {/* Subtitle */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="text-base md:text-lg text-white/90 max-w-xl mb-8 leading-relaxed drop-shadow-sm"
+                >
+                  We partner with schools and colleges to deliver transformative
+                  training programs — from emotional intelligence to technical
+                  excellence and career readiness.
+                </motion.p>
 
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-muted-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed"
-          >
-            We partner with schools and colleges to deliver transformative
-            training programs — from emotional intelligence to technical
-            excellence.
-          </motion.p>
+                {/* CTAs */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="flex flex-col sm:flex-row gap-4"
+                >
+                  <Link href="/contact">
+                    <Button size="xl" className="group bg-amber-500 hover:bg-amber-600 text-white">
+                      <Building2 className="w-5 h-5 mr-2" />
+                      Partner With Us
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                  <Link href="/open-programs">
+                    <Button size="xl" variant="outline" className="group border-white text-white hover:bg-white/20">
+                      <Users className="w-5 h-5 mr-2" />
+                      Explore Programs
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
 
-          {/* Dual CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-          >
-            <Link href="/contact">
-              <Button size="xl" variant="gradient" className="group">
-                <Building2 className="w-5 h-5 mr-2" />
-                Partner With Us
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link href="/open-programs">
-              <Button size="xl" variant="outline" className="group">
-                <Users className="w-5 h-5 mr-2" />
-                Explore Open Programs
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </motion.div>
-
-          {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto"
-          >
-            {[
-              { value: "50+", label: "Institutional Partners" },
-              { value: "10K+", label: "Students Impacted" },
-              { value: "200+", label: "Programs Delivered" },
-              { value: "95%", label: "Partner Satisfaction" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400">
-                  {stat.value}
-                </div>
-                <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+      {/* Slide indicators */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {banners.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              i === current ? "w-8 bg-amber-500" : "w-2 bg-white/50"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );

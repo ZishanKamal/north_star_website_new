@@ -59,7 +59,7 @@ export default function FreeDemoForm() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50/50 via-background to-indigo-50/50 dark:from-blue-950/20 dark:via-background dark:to-indigo-950/20">
+    <section className="py-20 bg-slate-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,20 +68,20 @@ export default function FreeDemoForm() {
           className="max-w-2xl mx-auto"
         >
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-sm font-medium text-green-600 dark:text-green-400 mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200 text-sm font-medium text-blue-700 mb-4">
               <Play className="w-4 h-4" />
               Experience It First
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Book a Free Demo
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
+            <p className="text-slate-500 max-w-xl mx-auto">
               See our programs in action. Request a free demo session and discover
               how North Star can transform learning at your institution.
             </p>
           </div>
 
-          <Card className="shadow-lg border-green-500/10">
+          <Card className="shadow-sm border-slate-200">
             <CardContent className="p-8">
               {status === "success" ? (
                 <motion.div
@@ -93,7 +93,7 @@ export default function FreeDemoForm() {
                     <Check className="w-8 h-8" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">Demo Requested!</h3>
-                  <p className="text-muted-foreground">{message}</p>
+                  <p className="text-slate-500">{message}</p>
                   <Button
                     variant="outline"
                     className="mt-6"
@@ -107,7 +107,7 @@ export default function FreeDemoForm() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        <User className="w-3.5 h-3.5 inline mr-1.5 text-muted-foreground" />
+                        <User className="w-3.5 h-3.5 inline mr-1.5 text-slate-400" />
                         Full Name *
                       </label>
                       <input
@@ -116,13 +116,13 @@ export default function FreeDemoForm() {
                         value={formState.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                         placeholder="Your name"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        <Mail className="w-3.5 h-3.5 inline mr-1.5 text-muted-foreground" />
+                        <Mail className="w-3.5 h-3.5 inline mr-1.5 text-slate-400" />
                         Email *
                       </label>
                       <input
@@ -131,7 +131,7 @@ export default function FreeDemoForm() {
                         value={formState.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                         placeholder="you@example.com"
                       />
                     </div>
@@ -140,7 +140,7 @@ export default function FreeDemoForm() {
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        <Phone className="w-3.5 h-3.5 inline mr-1.5 text-muted-foreground" />
+                        <Phone className="w-3.5 h-3.5 inline mr-1.5 text-slate-400" />
                         Phone
                       </label>
                       <input
@@ -148,7 +148,7 @@ export default function FreeDemoForm() {
                         name="phone"
                         value={formState.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                         placeholder="+91 XXXXX XXXXX"
                       />
                     </div>
@@ -160,7 +160,7 @@ export default function FreeDemoForm() {
                         name="programInterest"
                         value={formState.programInterest}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border bg-background text-foreground focus:ring-2 focus:ring-green-500/20 focus:border-green-500 outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                       >
                         <option value="">Select a program (optional)</option>
                         <option value="institutional-general">Institutional Programs (General)</option>
@@ -179,7 +179,7 @@ export default function FreeDemoForm() {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center gap-2 text-sm text-red-500 bg-red-50 dark:bg-red-950/20 px-4 py-3 rounded-lg"
+                      className="flex items-center gap-2 text-sm text-red-500 bg-red-50 px-4 py-3 rounded-lg"
                     >
                       <AlertCircle className="w-4 h-4 flex-shrink-0" />
                       {message}
@@ -189,7 +189,7 @@ export default function FreeDemoForm() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white"
+                    className="w-full bg-blue-700 hover:bg-blue-800 text-white"
                     disabled={status === "loading"}
                   >
                     {status === "loading" ? (
@@ -205,7 +205,7 @@ export default function FreeDemoForm() {
                     )}
                   </Button>
 
-                  <p className="text-xs text-center text-muted-foreground">
+                  <p className="text-xs text-center text-slate-500">
                     We&apos;ll contact you within 24 hours to schedule your demo session.
                   </p>
                 </form>
