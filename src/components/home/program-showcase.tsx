@@ -133,7 +133,7 @@ function ProgramCardItem({ program }: { program: ProgramCard }) {
   const Icon = iconMap[program.icon] || Heart;
 
   return (
-    <div className="w-full md:flex-shrink-0 md:w-[280px]">
+    <div className="flex-shrink-0 w-[220px] sm:w-[250px] md:w-[280px]">
       <div className="h-full rounded-xl border border-slate-200 bg-blue-50/40 p-6 flex flex-col">
         <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center mb-5 ml-auto">
           <Icon className="w-6 h-6 text-amber-500" />
@@ -163,54 +163,53 @@ export default function ProgramShowcase() {
   const [activeTab, setActiveTab] = useState(0);
   const [activeSub, setActiveSub] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [page, setPage] = useState(0);
-  const [totalPages, setTotalPages] = useState(1);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
   const currentTab = tabs[activeTab];
   const safeActiveSub = Math.min(activeSub, currentTab.subCategories.length - 1);
   const currentSub = currentTab.subCategories[safeActiveSub];
   const programs = currentSub.programs;
 
-  // Reset sub-category and scroll when tab changes
+  // Reset sub-category when tab changes
   useEffect(() => {
     setActiveSub(0);
-    setPage(0);
   }, [activeTab]);
 
-  useEffect(() => {
-    setPage(0);
-  }, [activeSub]);
-
-  // Calculate pages based on visible width
-  const updatePages = useCallback(() => {
+  // Check overflow after the entering animation completes (AnimatePresence)
+  const handleAnimationComplete = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
-    const visibleWidth = el.clientWidth;
-    const scrollWidth = el.scrollWidth;
-    const pages = Math.max(1, Math.ceil(scrollWidth / visibleWidth));
-    setTotalPages(pages);
+    el.scrollTo({ left: 0 });
+    setCanScrollLeft(false);
+    setCanScrollRight(el.scrollWidth > el.clientWidth + 1);
+  }, []);
+
+  // Keep arrows in sync while the user scrolls or resizes
+  const updateArrows = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 1);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
   }, []);
 
   useEffect(() => {
-    updatePages();
-    window.addEventListener("resize", updatePages);
-    return () => window.removeEventListener("resize", updatePages);
-  }, [updatePages, programs]);
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", updateArrows, { passive: true });
+    window.addEventListener("resize", updateArrows);
+    return () => {
+      el.removeEventListener("scroll", updateArrows);
+      window.removeEventListener("resize", updateArrows);
+    };
+  }, [updateArrows]);
 
-  const scroll = useCallback(
-    (direction: "left" | "right") => {
-      const el = scrollRef.current;
-      if (!el) return;
-      const visibleWidth = el.clientWidth;
-      const newPage =
-        direction === "right"
-          ? Math.min(page + 1, totalPages - 1)
-          : Math.max(page - 1, 0);
-      el.scrollTo({ left: newPage * visibleWidth, behavior: "smooth" });
-      setPage(newPage);
-    },
-    [page, totalPages]
-  );
+  const scroll = useCallback((direction: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = 280 + 16; // card width + gap
+    el.scrollBy({ left: direction === "right" ? cardWidth : -cardWidth, behavior: "smooth" });
+  }, []);
 
   return (
     <section className="py-16 bg-white">
@@ -274,13 +273,14 @@ export default function ProgramShowcase() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
+            onAnimationComplete={handleAnimationComplete}
             className="relative"
           >
             {/* Left arrow */}
-            {page > 0 && (
+            {canScrollLeft && (
               <button
                 onClick={() => scroll("left")}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-blue-700 hover:bg-blue-50 transition-colors"
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm items-center justify-center text-blue-700 hover:bg-blue-50 transition-colors"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -289,7 +289,7 @@ export default function ProgramShowcase() {
             {/* Cards — grid on mobile, horizontal scroll on desktop */}
             <div
               ref={scrollRef}
-              className="grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-row gap-5 md:overflow-x-auto md:scroll-smooth px-1 py-2 md:no-scrollbar md:justify-center"
+              className="flex flex-row gap-4 overflow-x-auto scroll-smooth px-1 py-2 no-scrollbar"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {programs.map((program) => (
@@ -298,10 +298,10 @@ export default function ProgramShowcase() {
             </div>
 
             {/* Right arrow */}
-            {page < totalPages - 1 && programs.length > 3 && (
+            {canScrollRight && (
               <button
                 onClick={() => scroll("right")}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-blue-700 hover:bg-blue-50 transition-colors"
+                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm items-center justify-center text-blue-700 hover:bg-blue-50 transition-colors"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -309,21 +309,7 @@ export default function ProgramShowcase() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Dots */}
-        {totalPages > 1 && (
-          <div className="flex justify-center gap-2 mt-6">
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <span
-                key={i}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  i === page ? "bg-slate-500" : "bg-slate-300"
-                }`}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Explore more */}
+{/* Explore more */}
         <div className="text-center mt-8">
           <Link href={currentTab.exploreHref}>
             <Button className="bg-blue-700 hover:bg-blue-800 text-white rounded-full px-8">
