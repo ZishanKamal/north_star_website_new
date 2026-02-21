@@ -1,8 +1,14 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | North Star Online",
-  description: "Get in touch with North Star Online. We're here to help with your learning journey.",
+  title: "Contact Us | North Star",
+  description:
+    "Partner with North Star or enroll in our programs. Reach out for institutional partnerships, individual inquiries, certificate validation, or free demo requests.",
+  openGraph: {
+    title: "Contact Us | North Star",
+    description:
+      "Partner with North Star or enroll in our programs. Reach out for institutional partnerships, individual inquiries, or free demo requests.",
+  },
 };
 
 export default function ContactLayout({

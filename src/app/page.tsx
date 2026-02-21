@@ -1,19 +1,21 @@
-import { Hero } from "@/components/home/hero";
-import { Methodology } from "@/components/home/methodology";
-import { WhyChooseUs } from "@/components/home/why-choose-us";
-import { CoursesSection } from "@/components/home/courses-section";
-import { Statistics } from "@/components/home/statistics";
-import { LatestBlogs } from "@/components/home/latest-blogs";
+import Hero from "@/components/home/hero";
+import PartnerCarousel from "@/components/home/partner-carousel";
+import ApproachOverview from "@/components/home/approach-overview";
+import InstitutionalPrograms from "@/components/home/institutional-programs";
+import TestimonialCarousel from "@/components/home/testimonial-carousel";
+import OpenProgramsPreview from "@/components/home/open-programs-preview";
+import CTASection from "@/components/home/cta-section";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Methodology />
-      <WhyChooseUs />
-      <CoursesSection />
-      <Statistics />
-      <LatestBlogs />
+      <PartnerCarousel />
+      <ApproachOverview />
+      <InstitutionalPrograms />
+      <TestimonialCarousel />
+      <OpenProgramsPreview />
+      <CTASection />
     </>
   );
 }

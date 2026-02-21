@@ -89,12 +89,12 @@ export function Statistics() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 bg-white/10 text-white text-sm font-medium rounded-full mb-4">
-            Did You Know?
+            Our Impact
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            The Numbers That
+            Making a
             <span className="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
-              {" "}Drive Us
+              {" "}Measurable Difference
             </span>
           </h2>
         </motion.div>
@@ -115,12 +115,11 @@ export function Statistics() {
                 <div className="text-5xl font-bold text-white mb-4">
                   <AnimatedCounter
                     value={stat.value}
-                    prefix={stat.prefix}
                     suffix={stat.suffix}
                   />
                 </div>
                 <p className="text-white/80 text-sm mb-4">{stat.label}</p>
-                <p className="text-xs text-white/50">*{stat.source}</p>
+                <p className="text-xs text-white/50">{stat.description}</p>
               </div>
             </motion.div>
           ))}
@@ -134,13 +133,13 @@ export function Statistics() {
           className="text-center mt-16"
         >
           <p className="text-xl text-white/80 mb-6">
-            Get ready to fulfill your dreams for the future
+            Ready to transform your institution&apos;s training outcomes?
           </p>
           <Link
-            href="/courses"
+            href="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-teal-500/25 transition-all duration-300 hover:scale-105"
           >
-            Explore Our Courses
+            Partner With Us
             <ArrowRight className="h-5 w-5" />
           </Link>
         </motion.div>

@@ -12,20 +12,36 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "North Star Academy - Discover, Build and Augment Your Potential",
-    template: "%s | North Star Academy",
+    default: "Developing Leaders, Empowering Institutions",
+    template: "%s | North Star",
   },
   description:
-    "Coaching and Training Academy for the future which will fulfill all your academic and professional dreams. Expert-led courses in AI, Programming, Business Communication, and more.",
+    "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
   keywords: [
-    "training academy",
-    "coaching",
-    "programming courses",
-    "AI training",
-    "career counselling",
+    "institutional training",
+    "school programs",
+    "college training partner",
+    "leadership development",
+    "career readiness",
+    "soft skills training",
     "Ranchi",
     "India",
   ],
+  metadataBase: new URL("https://northstaronline.in"),
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "North Star",
+    title: "North Star — Developing Leaders, Empowering Institutions",
+    description:
+      "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "North Star — Developing Leaders, Empowering Institutions",
+    description:
+      "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
+  },
 };
 
 export default function RootLayout({
@@ -47,6 +63,32 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          {/* Organization JSON-LD Structured Data */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "EducationalOrganization",
+                name: "North Star",
+                url: "https://northstaronline.in",
+                logo: "https://northstaronline.in/north-star-logo.png",
+                description:
+                  "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "01 4th Floor, Rali Grand Mall, Main Road",
+                  addressLocality: "Ranchi",
+                  addressRegion: "Jharkhand",
+                  postalCode: "834001",
+                  addressCountry: "IN",
+                },
+                telephone: "+91 9241959311",
+                email: "connect@northstaronline.in",
+                sameAs: [],
+              }),
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>
