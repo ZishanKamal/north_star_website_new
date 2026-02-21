@@ -12,8 +12,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Developing Leaders, Empowering Institutions",
-    template: "%s | North Star",
+    default: "North Star Academy",
+    template: "%s | North Star Academy",
   },
   description:
     "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
