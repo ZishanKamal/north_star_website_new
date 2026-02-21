@@ -133,7 +133,7 @@ function ProgramCardItem({ program }: { program: ProgramCard }) {
   const Icon = iconMap[program.icon] || Heart;
 
   return (
-    <div className="flex-shrink-0 w-[260px] sm:w-[280px]">
+    <div className="w-full md:flex-shrink-0 md:w-[280px]">
       <div className="h-full rounded-xl border border-slate-200 bg-blue-50/40 p-6 flex flex-col">
         <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center mb-5 ml-auto">
           <Icon className="w-6 h-6 text-amber-500" />
@@ -286,10 +286,10 @@ export default function ProgramShowcase() {
               </button>
             )}
 
-            {/* Cards row */}
+            {/* Cards — grid on mobile, horizontal scroll on desktop */}
             <div
               ref={scrollRef}
-              className="flex gap-5 overflow-x-auto scroll-smooth px-1 py-2 no-scrollbar justify-center"
+              className="grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-row gap-5 md:overflow-x-auto md:scroll-smooth px-1 py-2 md:no-scrollbar md:justify-center"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {programs.map((program) => (
