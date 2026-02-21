@@ -24,7 +24,8 @@ export default function Hero() {
 
   return (
     <section className="pt-16 overflow-hidden bg-white">
-      {/* Banner with overlay content */}
+
+      {/* ── Banner with overlay on all screen sizes ── */}
       <div className="relative">
         <AnimatePresence mode="wait">
           <motion.div
@@ -45,77 +46,61 @@ export default function Hero() {
               sizes="100vw"
             />
 
-            {/* Overlay content — stats + tagline on the banner */}
+            {/* Overlay — left side, all screen sizes */}
             <div className="absolute inset-0 flex items-center">
-              <div className="container mx-auto px-4 md:px-8">
-                <div className="max-w-2xl">
-                  {/* Stats Row - gold numbers */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="flex flex-wrap gap-x-10 gap-y-4 mb-8"
-                  >
+              <div className="w-full px-4 md:px-10 lg:px-16">
+                <div className="max-w-[52%] md:max-w-xl">
+                  {/* Stats */}
+                  <div className="flex flex-wrap gap-x-3 md:gap-x-10 gap-y-1 md:gap-y-4 mb-3 md:mb-8">
                     {[
-                      { label: "Institutional", value: "50+", desc: "Partners" },
+                      { label: "Helped build", value: "50+", desc: "Partners" },
                       { label: "Students", value: "10K+", desc: "Impacted" },
                       { label: "Programs", value: "200+", desc: "Delivered" },
                       { label: "Partner", value: "95%", desc: "Satisfaction" },
-                    ].map((stat, index) => (
-                      <motion.div
-                        key={stat.desc}
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                      >
-                        <p className="text-xs font-bold text-amber-500 uppercase tracking-wider mb-0.5 drop-shadow-sm">
+                    ].map((stat) => (
+                      <div key={stat.desc}>
+                        <p className="text-[8px] md:text-xs font-semibold text-amber-400 leading-tight">
                           {stat.label}
                         </p>
-                        <p className="text-4xl md:text-5xl font-bold text-amber-500 leading-none drop-shadow-sm">
+                        <p className="text-lg md:text-5xl font-bold text-amber-400 leading-none">
                           {stat.value}
                         </p>
-                        <p className="text-xs text-white mt-0.5 font-medium drop-shadow-sm">
+                        <p className="text-[8px] md:text-xs text-white/80 leading-tight">
                           {stat.desc}
                         </p>
-                      </motion.div>
+                      </div>
                     ))}
-                  </motion.div>
+                  </div>
 
-                  {/* Main Tagline */}
-                  <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-tight drop-shadow-md"
-                  >
-                    Developing Leaders,
-                    <br />
+                  {/* Tagline */}
+                  <h1 className="text-sm sm:text-xl md:text-4xl lg:text-[3.5rem] font-bold text-white leading-tight drop-shadow-sm">
+                    Developing Leaders,<br />
                     Empowering Institutions
-                  </motion.h1>
+                  </h1>
                 </div>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Slide indicators */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {/* Slide dots */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-2">
           {banners.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === current ? "w-8 bg-amber-500" : "w-2 bg-white/50"
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === current ? "w-6 bg-amber-400" : "w-1.5 bg-white/50"
               }`}
             />
           ))}
         </div>
       </div>
 
-      {/* Below banner — subtitle + CTAs */}
+      {/* ── Below banner: subtitle + CTAs ── */}
       <div className="bg-slate-50 border-b border-slate-200">
-        <div className="container mx-auto px-4 md:px-8 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <p className="text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed">
+        <div className="container mx-auto px-4 md:px-8 py-6 md:py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
+          <p className="text-sm md:text-lg text-slate-600 max-w-2xl leading-relaxed">
             We partner with schools and colleges to deliver transformative
             training programs — from emotional intelligence to technical
             excellence and career readiness.
@@ -123,14 +108,14 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <Link href="/contact">
               <Button size="lg" className="group bg-blue-700 hover:bg-blue-800 text-white w-full sm:w-auto">
-                <Building2 className="w-5 h-5 mr-2" />
+                <Building2 className="w-4 h-4 mr-2" />
                 Partner With Us
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link href="/open-programs">
               <Button size="lg" variant="outline" className="group w-full sm:w-auto">
-                <Users className="w-5 h-5 mr-2" />
+                <Users className="w-4 h-4 mr-2" />
                 Explore Programs
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -138,6 +123,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
     </section>
   );
 }
