@@ -143,12 +143,12 @@ function ProgramCardItem({ program }: { program: ProgramCard }) {
         </h3>
         <div className="flex gap-2 mt-auto">
           <Link href={program.href}>
-            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-slate-300 text-slate-600 bg-white hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-colors">
+            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-blue-700 text-blue-700 bg-white hover:bg-blue-700 hover:text-white transition-colors">
               View
             </button>
           </Link>
           <Link href="/contact">
-            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-slate-300 text-slate-600 bg-white hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-colors">
+            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-blue-700 text-blue-700 bg-white hover:bg-blue-700 hover:text-white transition-colors">
               Enquire
             </button>
           </Link>
@@ -326,7 +326,7 @@ export default function ProgramShowcase() {
 {/* Explore more */}
         <div className="text-center mt-8">
           <Link href={currentTab.exploreHref}>
-            <Button className="border border-slate-300 text-slate-600 bg-white hover:bg-blue-700 hover:text-white hover:border-blue-700 rounded-full px-8 transition-colors">
+            <Button className="border border-blue-700 text-blue-700 bg-white hover:bg-blue-700 hover:text-white rounded-full px-8 transition-colors">
               {currentTab.exploreLabel}
             </Button>
           </Link>
