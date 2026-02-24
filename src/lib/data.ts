@@ -95,6 +95,7 @@ export const navigation = {
         { name: "For Schools", href: "/for-schools" },
         { name: "For Colleges", href: "/for-colleges" },
         { name: "Open Programs", href: "/open-programs" },
+        { name: "Emotional State Assessment", href: "/assessment" },
       ],
     },
     { name: "Contact", href: "/contact" },
@@ -111,6 +112,7 @@ export const navigation = {
       { name: "About Us", href: "/about" },
       { name: "Our Approach", href: "/approach" },
       { name: "Partner With Us", href: "/contact" },
+      { name: "Emotional State Assessment", href: "/assessment" },
     ],
   },
 };

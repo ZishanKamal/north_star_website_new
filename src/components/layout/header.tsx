@@ -181,6 +181,18 @@ export function Header() {
                     </Link>
                   );
                 })}
+                {/* Divider */}
+                <div className="my-3 border-t border-slate-100" />
+
+                {/* Career Counselling external link */}
+                <a
+                  href={siteConfig.externalLinks.careerCounselling}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-3 text-[15px] font-medium rounded-lg text-slate-700 hover:bg-slate-50 transition-colors"
+                >
+                  Career Counselling ↗
+                </a>
               </nav>
 
 
