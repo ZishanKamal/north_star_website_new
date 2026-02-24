@@ -60,7 +60,7 @@ export default function AboutPage() {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200 text-sm font-medium text-blue-700 mb-6">
               <Building2 className="w-4 h-4" />
-              About North Star
+              About North Star Academy
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-900">
               Your Guiding{" "}
@@ -92,7 +92,7 @@ export default function AboutPage() {
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <Image
                     src="/images/about.png"
-                    alt="North Star"
+                    alt="North Star Academy"
                     width={600}
                     height={450}
                     className="object-contain w-full h-auto"
@@ -342,7 +342,7 @@ export default function AboutPage() {
               What Drives Us
             </h2>
             <p className="max-w-2xl mx-auto text-slate-500">
-              Our core values guide everything we do at North Star.
+              Our core values guide everything we do at North Star Academy.
             </p>
           </motion.div>
 
@@ -384,7 +384,7 @@ export default function AboutPage() {
               Ready to Partner With Us?
             </h2>
             <p className="text-lg text-slate-500 mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss how North Star can help your institution deliver
+              Let&apos;s discuss how North Star Academy can help your institution deliver
               transformative training programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -470,7 +470,7 @@ export default function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="North Star Office Location"
+                title="North Star Academy Office Location"
               />
             </motion.div>
           </div>

@@ -77,7 +77,7 @@ export default function FreeDemoForm() {
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto">
               See our programs in action. Request a free demo session and discover
-              how North Star can transform learning at your institution.
+              how North Star Academy can transform learning at your institution.
             </p>
           </div>
 

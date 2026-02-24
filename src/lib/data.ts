@@ -1,8 +1,8 @@
-// North Star — Website Content Data (Redesigned for Institutional Focus)
+// North Star Academy — Website Content Data (Redesigned for Institutional Focus)
 // Core Theme: "Developing Leaders, Empowering Institutions — From Classrooms to Careers"
 
 export const siteConfig = {
-  name: "North Star",
+  name: "North Star Academy",
   tagline: "Developing Leaders, Empowering Institutions",
   subtitle: "From Classrooms to Careers",
   description:
@@ -46,7 +46,7 @@ export const founder = {
     "20+ years of Global IT Industry Experience",
   ],
   image: "/images/founder.png",
-  message: "Greetings from North Star! I hope this message finds you well, and I am thrilled to share with you the exciting journey we are embarking on.\n\nAs the Chief Coach and Trainer, it is my pleasure to welcome you to a realm of endless possibilities and boundless potential. We are dedicated to guiding institutions, students, and professionals on a transformative journey of skill enhancement and career readiness.\n\nWe believe in the power of holistic development. Our carefully crafted programs encompass a diverse range of subjects, designed to nurture not just technical proficiency but also emotional intelligence and cognitive readiness.\n\nWhat sets us apart is our commitment to experiential learning. Through gamification, hands-on projects, and reinforcement learning, we go beyond traditional teaching methods to ensure that participants not only grasp theoretical concepts but also acquire practical skills that are immediately applicable.\n\nWe are not just a training academy — we are partners in your institution's journey toward excellence. Our dedicated team of educators and industry experts are committed to providing a nurturing environment where talents are discovered, skills are honed, and potentials are augmented.",
+  message: "Greetings from North Star Academy! I hope this message finds you well, and I am thrilled to share with you the exciting journey we are embarking on.\n\nAs the Chief Coach and Trainer, it is my pleasure to welcome you to a realm of endless possibilities and boundless potential. We are dedicated to guiding institutions, students, and professionals on a transformative journey of skill enhancement and career readiness.\n\nWe believe in the power of holistic development. Our carefully crafted programs encompass a diverse range of subjects, designed to nurture not just technical proficiency but also emotional intelligence and cognitive readiness.\n\nWhat sets us apart is our commitment to experiential learning. Through gamification, hands-on projects, and reinforcement learning, we go beyond traditional teaching methods to ensure that participants not only grasp theoretical concepts but also acquire practical skills that are immediately applicable.\n\nWe are not just a training academy — we are partners in your institution's journey toward excellence. Our dedicated team of educators and industry experts are committed to providing a nurturing environment where talents are discovered, skills are honed, and potentials are augmented.",
 };
 
 export const teamMembers = [
@@ -171,7 +171,7 @@ export const testimonials = [
     role: "Principal",
     institution: "Delhi Public School, Ranchi",
     quote:
-      "North Star's programs have transformed how our students approach learning. The emotional harmony workshops have had a visible impact on student well-being and academic performance.",
+      "North Star Academy's programs have transformed how our students approach learning. The emotional harmony workshops have had a visible impact on student well-being and academic performance.",
     image: "/images/testimonials/testimonial-1.jpg",
     videoUrl: "https://www.youtube.com/embed/DIFCMtzg7xg",
   },
@@ -181,7 +181,7 @@ export const testimonials = [
     role: "Dean of Studies",
     institution: "Birla Institute of Technology",
     quote:
-      "The industry readiness programs delivered by North Star have significantly improved our placement rates. Their approach bridges the gap between academics and real-world requirements.",
+      "The industry readiness programs delivered by North Star Academy have significantly improved our placement rates. Their approach bridges the gap between academics and real-world requirements.",
     image: "/images/testimonials/testimonial-2.jpg",
     videoUrl: "https://www.youtube.com/embed/R_i2B186Fus",
   },
@@ -191,7 +191,7 @@ export const testimonials = [
     role: "Vice Principal",
     institution: "St. Xavier's School, Ranchi",
     quote:
-      "We've been partnering with North Star for two years now. Their cognitive readiness programs are unique and have helped our students develop critical thinking skills.",
+      "We've been partnering with North Star Academy for two years now. Their cognitive readiness programs are unique and have helped our students develop critical thinking skills.",
     image: "/images/testimonials/testimonial-3.jpg",
     videoUrl: "https://www.youtube.com/embed/L-fm0Fvygi0",
   },
@@ -201,7 +201,7 @@ export const testimonials = [
     role: "Head of Department, CSE",
     institution: "Ranchi University",
     quote:
-      "North Star's AI Ecosystem and Data Visualization programs have been a game-changer for our final-year students. The industry alignment in their curriculum is exceptional.",
+      "North Star Academy's AI Ecosystem and Data Visualization programs have been a game-changer for our final-year students. The industry alignment in their curriculum is exceptional.",
     image: "/images/testimonials/testimonial-4.jpg",
     videoUrl: "https://www.youtube.com/embed/L-fm0Fvygi0",
   },
@@ -623,7 +623,7 @@ export const partnershipProcess = [
 
 export const faqs = [
   {
-    question: "How does North Star partner with institutions?",
+    question: "How does North Star Academy partner with institutions?",
     answer: "We work directly with schools and colleges to deliver customized training programs. We handle everything from curriculum design to delivery and assessment, integrating seamlessly with your academic calendar.",
   },
   {

@@ -30,7 +30,7 @@ export function Footer() {
             className="text-center"
           >
             <span className="inline-block px-4 py-1.5 bg-blue-900/40 text-blue-300 text-sm font-medium rounded-lg mb-4">
-              PARTNER WITH NORTH STAR
+              PARTNER WITH NORTH STAR ACADEMY
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
               Ready to transform your institution?

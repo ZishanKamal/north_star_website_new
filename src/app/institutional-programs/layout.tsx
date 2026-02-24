@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Institutional Programs | North Star",
+  title: "Institutional Programs | North Star Academy",
   description:
-    "Customized training programs for schools and colleges. Partner with North Star for transformative institutional training.",
+    "Customized training programs for schools and colleges. Partner with North Star Academy for transformative institutional training.",
   openGraph: {
-    title: "Institutional Programs | North Star",
+    title: "Institutional Programs | North Star Academy",
     description:
-      "Customized training programs for schools and colleges. Partner with North Star for transformative institutional training.",
+      "Customized training programs for schools and colleges. Partner with North Star Academy for transformative institutional training.",
   },
 };
 

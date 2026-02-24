@@ -65,7 +65,7 @@ export default function CertificateValidator() {
               Certificate Validation
             </h2>
             <p className="text-slate-500">
-              Verify the authenticity of a North Star certificate. Enter the
+              Verify the authenticity of a North Star Academy certificate. Enter the
               details below and we&apos;ll send the validation result to your email.
             </p>
           </div>

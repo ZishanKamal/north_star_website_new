@@ -94,7 +94,7 @@ export default function ApproachPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              The North Star Journey
+              The North Star Academy Journey
             </h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto">
               Three integrated stages that prepare students for lifelong success.

@@ -296,7 +296,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
             <Award className="h-16 w-16 mx-auto text-yellow-500 mb-6" />
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Get Started?</h2>
             <p className="text-xl text-slate-500 mb-8">
-              Join our community of learners and transform your skills with North Star.
+              Join our community of learners and transform your skills with North Star Academy.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" asChild>

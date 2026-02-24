@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #3b82f6, #6366f1); padding: 24px; border-radius: 12px 12px 0 0;">
-          <h1 style="color: white; margin: 0; font-size: 20px;">New ${enquiryType} — North Star</h1>
+          <h1 style="color: white; margin: 0; font-size: 20px;">New ${enquiryType} — North Star Academy</h1>
         </div>
         <div style="border: 1px solid #e5e7eb; border-top: none; padding: 24px; border-radius: 0 0 12px 12px;">
           <table style="width: 100%; border-collapse: collapse;">
@@ -54,15 +54,15 @@ export async function POST(request: NextRequest) {
           <h1 style="color: white; margin: 0; font-size: 20px;">Thank You, ${name}!</h1>
         </div>
         <div style="border: 1px solid #e5e7eb; border-top: none; padding: 24px; border-radius: 0 0 12px 12px;">
-          <p>Thank you for reaching out to North Star. We've received your ${isInstitutional ? "partnership inquiry" : "inquiry"} and will get back to you within 24 hours.</p>
-          <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">— The North Star Team</p>
+          <p>Thank you for reaching out to North Star Academy. We've received your ${isInstitutional ? "partnership inquiry" : "inquiry"} and will get back to you within 24 hours.</p>
+          <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">— The North Star Academy Team</p>
         </div>
       </div>
     `;
 
     await sendEmail({
       to: email,
-      subject: "Thank you for contacting North Star",
+      subject: "Thank you for contacting North Star Academy",
       html: replyHtml,
     });
 

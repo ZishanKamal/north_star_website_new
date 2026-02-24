@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
             <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td style="padding: 8px 0;">${email}</td></tr>
           </table>
           <p>Our team will verify this certificate and send you the validation details within 24-48 hours.</p>
-          <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">— The North Star Team</p>
+          <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">— The North Star Academy Team</p>
         </div>
       </div>
     `;
@@ -45,7 +45,20 @@ export async function POST(request: NextRequest) {
     await sendEmail({
       to: adminEmail,
       subject: `[Certificate Validation] ${certificateId} — from ${email}`,
-      html: `<p>Certificate validation requested:</p><ul><li><strong>ID:</strong> ${certificateId}</li><li><strong>Email:</strong> ${email}</li></ul>`,
+      html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="background: linear-gradient(135deg, #f59e0b, #d97706); padding: 24px; border-radius: 12px 12px 0 0;">
+          <h1 style="color: white; margin: 0; font-size: 20px;">Certificate Validation Request</h1>
+        </div>
+        <div style="border: 1px solid #e5e7eb; border-top: none; padding: 24px; border-radius: 0 0 12px 12px;">
+          <p>A certificate validation has been requested:</p>
+          <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+            <tr><td style="padding: 8px 0; font-weight: bold; width: 140px;">Certificate ID:</td><td style="padding: 8px 0;">${certificateId}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td style="padding: 8px 0;">${email}</td></tr>
+          </table>
+          <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">— The North Star Academy Team</p>
+        </div>
+      </div>`,
       replyTo: email,
     });
 

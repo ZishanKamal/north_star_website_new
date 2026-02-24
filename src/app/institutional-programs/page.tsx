@@ -160,7 +160,7 @@ export default function InstitutionalProgramsPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Partner With North Star?
+              Why Partner With North Star Academy?
             </h2>
             <p className="text-lg text-slate-500 max-w-2xl mx-auto">
               Everything your institution needs for impactful, measurable training programs.

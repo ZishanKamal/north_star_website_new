@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Technical training, AI, programming, and industry-readiness programs designed for college and university students. Make graduates job-ready from day one.",
   openGraph: {
-    title: "Programs for Colleges | North Star",
+    title: "Programs for Colleges | North Star Academy",
     description:
       "Technical training, AI, programming, and industry-readiness programs designed for college and university students.",
   },

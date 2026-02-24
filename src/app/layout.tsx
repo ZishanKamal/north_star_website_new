@@ -31,14 +31,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "North Star",
-    title: "North Star — Developing Leaders, Empowering Institutions",
+    siteName: "North Star Academy",
+    title: "North Star Academy — Developing Leaders, Empowering Institutions",
     description:
       "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "North Star — Developing Leaders, Empowering Institutions",
+    title: "North Star Academy — Developing Leaders, Empowering Institutions",
     description:
       "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
   },
@@ -64,7 +64,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
-              name: "North Star",
+              name: "North Star Academy",
               url: "https://northstaronline.in",
               logo: "https://northstaronline.in/north-star-logo.png",
               description:

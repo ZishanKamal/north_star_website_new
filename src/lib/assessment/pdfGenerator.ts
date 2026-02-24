@@ -175,10 +175,10 @@ async function buildPDFDocument(data: PDFData): Promise<jsPDF> {
     doc.setFontSize(20);
     doc.setFont('helvetica', 'bold');
     doc.setTextColor(0, 0, 0);
-    doc.text('NORTH STAR', pageWidth / 2, logoYPosition, { align: 'center' });
+    doc.text('NORTH STAR ACADEMY', pageWidth / 2, logoYPosition, { align: 'center' });
     doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
-    doc.text('ACADEMY', pageWidth / 2, logoYPosition + 6, { align: 'center' });
+    doc.text('www.northstaronline.in', pageWidth / 2, logoYPosition + 6, { align: 'center' });
     yPosition = logoYPosition + 21;
   }
 
