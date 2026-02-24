@@ -485,9 +485,9 @@ async function buildPDFDocument(data: PDFData): Promise<jsPDF> {
     doc.text('Your Emotional Profile', pageWidth / 2, yPosition, { align: 'center' });
     yPosition += 10;
     
-    // Add the radar chart image with better dimensions
-    const chartWidth = 200;
-    const chartHeight = 75;
+    // Add the radar chart image - use 2:1 aspect ratio matching the captured 800x400 source
+    const chartWidth = 160;
+    const chartHeight = 80;
     const xPos = (pageWidth - chartWidth) / 2;
     
     try {

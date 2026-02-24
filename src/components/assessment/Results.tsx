@@ -79,6 +79,7 @@ export default function Results() {
   }, []);
 
   // Capture chart as image when component mounts
+  // Uses a fixed-size off-screen container so the chart renders identically on mobile and desktop
   useEffect(() => {
     const captureChart = async () => {
       if (chartRef.current) {
@@ -88,12 +89,24 @@ export default function Results() {
           const svgElement = chartRef.current.querySelector('svg');
           if (!svgElement) return;
 
-          const bbox = svgElement.getBoundingClientRect();
-          const svgData = new XMLSerializer().serializeToString(svgElement);
+          // Clone the SVG and set fixed dimensions to avoid viewport-dependent sizing
+          const clonedSvg = svgElement.cloneNode(true) as SVGSVGElement;
+          const fixedWidth = 800;
+          const fixedHeight = 400;
+          clonedSvg.setAttribute('width', String(fixedWidth));
+          clonedSvg.setAttribute('height', String(fixedHeight));
+          if (!clonedSvg.getAttribute('viewBox')) {
+            const origWidth = svgElement.getAttribute('width') || svgElement.getBoundingClientRect().width;
+            const origHeight = svgElement.getAttribute('height') || svgElement.getBoundingClientRect().height;
+            clonedSvg.setAttribute('viewBox', `0 0 ${origWidth} ${origHeight}`);
+          }
 
+          const svgData = new XMLSerializer().serializeToString(clonedSvg);
+
+          const scale = 3;
           const canvas = document.createElement('canvas');
-          canvas.width = bbox.width * 3;
-          canvas.height = bbox.height * 3;
+          canvas.width = fixedWidth * scale;
+          canvas.height = fixedHeight * scale;
           const ctx = canvas.getContext('2d');
 
           if (!ctx) return;
@@ -109,8 +122,8 @@ export default function Results() {
           const loadPromise = new Promise<void>((resolve, reject) => {
             img.onload = () => {
               try {
-                ctx.scale(3, 3);
-                ctx.drawImage(img, 0, 0);
+                ctx.scale(scale, scale);
+                ctx.drawImage(img, 0, 0, fixedWidth, fixedHeight);
                 URL.revokeObjectURL(url);
                 const imageData = canvas.toDataURL('image/png');
                 setChartImage(imageData);
