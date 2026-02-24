@@ -57,7 +57,10 @@ export const useAppStore = create<AppState>()(
         whatsapp: "",
       },
 
-      setScreen: (screen) => set({ currentScreen: screen }),
+      setScreen: (screen) => {
+        set({ currentScreen: screen });
+        if (typeof window !== 'undefined') window.scrollTo(0, 0);
+      },
       setCurrentQuestion: (question) => set({ currentQuestion: question }),
       setAnswer: (questionId, value) =>
         set((state) => ({
@@ -66,22 +69,26 @@ export const useAppStore = create<AppState>()(
       setTimeRemaining: (time) => set({ timeRemaining: time }),
       setStudentInfo: (info) => set({ studentInfo: info }),
 
-      startTest: (isQuick = false) =>
+      startTest: (isQuick = false) => {
         set({
           currentScreen: "test",
           testStartTime: Date.now(),
           currentQuestion: 1,
           timeRemaining: isQuick ? TIME_LIMITS.QUICK_ASSESSMENT : TIME_LIMITS.FULL_ASSESSMENT,
           isQuickAssessment: isQuick,
-        }),
+        });
+        if (typeof window !== 'undefined') window.scrollTo(0, 0);
+      },
 
-      completeTest: () =>
+      completeTest: () => {
         set({
           testCompleted: true,
           currentScreen: "results",
-        }),
+        });
+        if (typeof window !== 'undefined') window.scrollTo(0, 0);
+      },
 
-      resetTest: () =>
+      resetTest: () => {
         set({
           currentScreen: "landing",
           currentQuestion: 1,
@@ -95,7 +102,9 @@ export const useAppStore = create<AppState>()(
             email: "",
             whatsapp: "",
           },
-        }),
+        });
+        if (typeof window !== 'undefined') window.scrollTo(0, 0);
+      },
 
       nextQuestion: () => {
         const current = get().currentQuestion;
@@ -103,6 +112,7 @@ export const useAppStore = create<AppState>()(
         const maxQuestions = isQuick ? 10 : 50;
         if (current < maxQuestions) {
           set({ currentQuestion: current + 1 });
+          if (typeof window !== 'undefined') window.scrollTo(0, 0);
         } else {
           get().completeTest();
         }
@@ -112,6 +122,7 @@ export const useAppStore = create<AppState>()(
         const current = get().currentQuestion;
         if (current > 1) {
           set({ currentQuestion: current - 1 });
+          if (typeof window !== 'undefined') window.scrollTo(0, 0);
         }
       },
     }),

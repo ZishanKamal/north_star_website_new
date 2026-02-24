@@ -143,12 +143,12 @@ function ProgramCardItem({ program }: { program: ProgramCard }) {
         </h3>
         <div className="flex gap-2 mt-auto">
           <Link href={program.href}>
-            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors">
+            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-slate-300 text-slate-600 bg-white hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-colors">
               View
             </button>
           </Link>
           <Link href="/contact">
-            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full bg-blue-700 text-white hover:bg-blue-800 transition-colors">
+            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-slate-300 text-slate-600 bg-white hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-colors">
               Enquire
             </button>
           </Link>
@@ -215,28 +215,30 @@ export default function ProgramShowcase() {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         {/* Main tabs */}
-        <div className="flex justify-center gap-8 mb-8">
-          {tabs.map((tab, i) => {
-            const TabIcon = tab.icon;
-            const isActive = i === activeTab;
-            return (
-              <button
-                key={tab.label}
-                onClick={() => setActiveTab(i)}
-                className={`flex flex-col items-center gap-2 px-4 md:px-6 py-3 rounded-lg transition-all text-xs md:text-base font-semibold ${
-                  isActive
-                    ? "text-blue-700 border-b-2 border-blue-700"
-                    : "text-slate-500 hover:text-slate-700"
-                }`}
-              >
-                <TabIcon className="w-5 h-5 md:w-8 md:h-8" />
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex bg-slate-100 rounded-xl p-1.5 gap-1.5">
+            {tabs.map((tab, i) => {
+              const TabIcon = tab.icon;
+              const isActive = i === activeTab;
+              return (
+                <button
+                  key={tab.label}
+                  onClick={() => setActiveTab(i)}
+                  className={`relative flex items-center gap-2.5 px-5 md:px-8 py-3 md:py-3.5 rounded-lg transition-all duration-200 text-xs md:text-sm font-semibold ${
+                    isActive
+                      ? "bg-white text-blue-700 shadow-md"
+                      : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
+                  }`}
+                >
+                  <TabIcon className={`w-5 h-5 ${isActive ? "text-blue-600" : ""}`} />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Sub-category filter pills */}
+        {/* Sub-category filter tabs */}
         <AnimatePresence mode="wait">
           <motion.div
             key={`pills-${activeTab}`}
@@ -244,24 +246,36 @@ export default function ProgramShowcase() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="flex justify-center flex-wrap gap-3 mb-10"
+            className="flex justify-center mb-10"
           >
-            {currentTab.subCategories.map((sub, i) => {
-              const isActive = i === activeSub;
-              return (
-                <button
-                  key={sub.label}
-                  onClick={() => setActiveSub(i)}
-                  className={`px-4 md:px-6 py-1.5 md:py-2.5 rounded-full text-xs md:text-base font-medium border transition-colors ${
-                    isActive
-                      ? "bg-blue-700 text-white border-blue-700"
-                      : "bg-white text-slate-600 border-slate-300 hover:border-blue-400 hover:text-blue-700"
-                  }`}
-                >
-                  {sub.label} ({sub.count})
-                </button>
-              );
-            })}
+            <div className="flex gap-1 border-b border-slate-200">
+              {currentTab.subCategories.map((sub, i) => {
+                const isActive = i === activeSub;
+                return (
+                  <button
+                    key={sub.label}
+                    onClick={() => setActiveSub(i)}
+                    className={`relative px-5 md:px-8 py-2.5 md:py-3 text-xs md:text-sm font-semibold transition-colors ${
+                      isActive
+                        ? "text-blue-700"
+                        : "text-slate-500 hover:text-slate-700"
+                    }`}
+                  >
+                    {sub.label}
+                    <span className="ml-1.5 text-[10px] md:text-xs font-medium px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500">
+                      {sub.count}
+                    </span>
+                    {isActive && (
+                      <motion.div
+                        layoutId={`sub-indicator-${activeTab}`}
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-700 rounded-full"
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </motion.div>
         </AnimatePresence>
 
@@ -312,7 +326,7 @@ export default function ProgramShowcase() {
 {/* Explore more */}
         <div className="text-center mt-8">
           <Link href={currentTab.exploreHref}>
-            <Button className="bg-blue-700 hover:bg-blue-800 text-white rounded-full px-8">
+            <Button className="border border-slate-300 text-slate-600 bg-white hover:bg-blue-700 hover:text-white hover:border-blue-700 rounded-full px-8 transition-colors">
               {currentTab.exploreLabel}
             </Button>
           </Link>

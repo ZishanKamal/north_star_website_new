@@ -40,6 +40,11 @@ export default function TestInterface() {
 
   const canGoNext = answers[currentQuestion] !== undefined;
 
+  // Scroll to top when question changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentQuestion]);
+
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 py-8">
       <div className="max-w-3xl w-full">
