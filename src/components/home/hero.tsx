@@ -99,13 +99,13 @@ export default function Hero() {
 
       {/* ── Below banner: subtitle + CTAs ── */}
       <div className="bg-slate-50 border-b border-slate-200">
-        <div className="container mx-auto px-4 md:px-8 py-6 md:py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
+        <div className="container mx-auto px-4 md:px-8 py-8 md:py-10 flex flex-col items-center text-center gap-5">
           <p className="text-sm md:text-lg text-slate-600 max-w-2xl leading-relaxed">
             We partner with schools and colleges to deliver transformative
             training programs — from emotional intelligence to technical
             excellence and career readiness.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Link href="/contact">
               <Button size="lg" className="group bg-blue-700 hover:bg-blue-800 text-white w-full sm:w-auto">
                 <Building2 className="w-4 h-4 mr-2" />

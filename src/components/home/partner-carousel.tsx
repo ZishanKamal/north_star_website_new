@@ -30,7 +30,7 @@ export default function PartnerCarousel() {
                 {partners.map((partner) => (
                   <div
                     key={`${partner.name}-${setIndex}`}
-                    className="flex flex-col items-center gap-3 shrink-0 transition-all duration-200 opacity-60 hover:opacity-100 w-28"
+                    className="flex flex-col items-center gap-3 shrink-0 transition-all duration-200 w-28"
                   >
                     <div
                       className="w-20 h-20 rounded-lg bg-white border border-slate-200 flex items-center justify-center overflow-hidden"

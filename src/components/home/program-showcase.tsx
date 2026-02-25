@@ -176,15 +176,6 @@ export default function ProgramShowcase() {
     setActiveSub(0);
   }, [activeTab]);
 
-  // Check overflow after the entering animation completes (AnimatePresence)
-  const handleAnimationComplete = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.scrollTo({ left: 0 });
-    setCanScrollLeft(false);
-    setCanScrollRight(el.scrollWidth > el.clientWidth + 1);
-  }, []);
-
   // Keep arrows in sync while the user scrolls or resizes
   const updateArrows = useCallback(() => {
     const el = scrollRef.current;
@@ -193,16 +184,27 @@ export default function ProgramShowcase() {
     setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
   }, []);
 
+  // Re-attach listeners and recalculate when tab/sub changes (AnimatePresence remounts the scroll container)
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", updateArrows, { passive: true });
+    // Multiple checks to catch the DOM after AnimatePresence animation completes
+    const timers = [100, 300, 500].map((delay) =>
+      setTimeout(() => {
+        const el = scrollRef.current;
+        if (!el) return;
+        el.scrollTo({ left: 0 });
+        el.addEventListener("scroll", updateArrows, { passive: true });
+        updateArrows();
+      }, delay)
+    );
+
     window.addEventListener("resize", updateArrows);
     return () => {
-      el.removeEventListener("scroll", updateArrows);
+      timers.forEach(clearTimeout);
+      const el = scrollRef.current;
+      if (el) el.removeEventListener("scroll", updateArrows);
       window.removeEventListener("resize", updateArrows);
     };
-  }, [updateArrows]);
+  }, [updateArrows, activeTab, activeSub]);
 
   const scroll = useCallback((direction: "left" | "right") => {
     const el = scrollRef.current;
@@ -287,18 +289,17 @@ export default function ProgramShowcase() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            onAnimationComplete={handleAnimationComplete}
             className="relative"
           >
             {/* Left arrow */}
-            {canScrollLeft && (
-              <button
-                onClick={() => scroll("left")}
-                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm items-center justify-center text-blue-700 hover:bg-blue-50 transition-colors"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-            )}
+            <button
+              onClick={() => scroll("left")}
+              className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm items-center justify-center text-blue-700 hover:bg-blue-50 transition-all duration-200 ${
+                canScrollLeft ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+              }`}
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
 
             {/* Cards — grid on mobile, horizontal scroll on desktop */}
             <div
@@ -312,14 +313,14 @@ export default function ProgramShowcase() {
             </div>
 
             {/* Right arrow */}
-            {canScrollRight && (
-              <button
-                onClick={() => scroll("right")}
-                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm items-center justify-center text-blue-700 hover:bg-blue-50 transition-colors"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            )}
+            <button
+              onClick={() => scroll("right")}
+              className={`hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm items-center justify-center text-blue-700 hover:bg-blue-50 transition-all duration-200 ${
+                canScrollRight ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+              }`}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </motion.div>
         </AnimatePresence>
 
