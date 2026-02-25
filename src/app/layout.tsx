@@ -28,6 +28,10 @@ export const metadata: Metadata = {
     "India",
   ],
   metadataBase: new URL("https://northstaronline.in"),
+    icons: {
+      icon: "/favicon.png",
+      apple: "/favicon.png"
+    },
   openGraph: {
     type: "website",
     locale: "en_IN",
