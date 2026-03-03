@@ -1,23 +1,34 @@
 import nodemailer from "nodemailer";
 
-// Reads SMTP settings from environment variables.
-// Falls back to console logging if not configured.
+// Cached transporter — created once, reused across all requests.
+// Uses connection pooling to avoid repeated TCP/TLS/AUTH handshakes.
+let cachedTransporter: nodemailer.Transporter | null | undefined;
+
 function getTransporter() {
+  // Return cached transporter if already created
+  if (cachedTransporter !== undefined) return cachedTransporter;
+
   const host = process.env.SMTP_HOST;
   const port = process.env.SMTP_PORT;
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
 
   if (!host || !user || !pass) {
-    return null; // No SMTP configured — will log to console instead
+    cachedTransporter = null; // No SMTP configured — will log to console instead
+    return null;
   }
 
-  return nodemailer.createTransport({
+  cachedTransporter = nodemailer.createTransport({
     host,
     port: Number(port) || 587,
     secure: Number(port) === 465,
     auth: { user, pass },
+    pool: true,         // Reuse connections instead of opening new ones
+    maxConnections: 3,  // Allow up to 3 simultaneous connections
+    maxMessages: 100,   // Send up to 100 messages per connection before reconnecting
   });
+
+  return cachedTransporter;
 }
 
 export async function sendEmail({

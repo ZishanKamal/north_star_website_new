@@ -50,7 +50,7 @@ export default function TestInterface() {
       <div className="max-w-3xl w-full">
         {/* Header with Timer */}
         <div className="flex justify-between items-center mb-8">
-          <div className="text-sm text-slate-600">
+          <div className="text-sm text-slate-600 dark:text-slate-400">
             Question {currentQuestion} of {questions.length}
           </div>
           <div className={`flex items-center gap-2 px-4 py-2 rounded-full ${
@@ -62,7 +62,7 @@ export default function TestInterface() {
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full h-2 bg-slate-200 rounded-full mb-8 overflow-hidden">
+        <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full mb-8 overflow-hidden">
           <motion.div
             className="h-full bg-blue-600"
             initial={{ width: 0 }}
@@ -77,9 +77,9 @@ export default function TestInterface() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
-          className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-8 border border-slate-100"
+          className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-8 md:p-12 mb-8 border border-slate-100 dark:border-slate-700"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-8">
             {currentQ.question}
           </h2>
 
@@ -92,8 +92,8 @@ export default function TestInterface() {
                 onClick={() => handleAnswer(option.value)}
                 className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
                   answers[currentQuestion] === option.value
-                    ? 'border-blue-600 bg-blue-50'
-                    : 'border-slate-200 hover:border-blue-400'
+                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/30'
+                    : 'border-slate-200 dark:border-slate-600 hover:border-blue-400'
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -103,10 +103,10 @@ export default function TestInterface() {
                       : 'border-slate-300'
                   }`}>
                     {answers[currentQuestion] === option.value && (
-                      <div className="w-2 h-2 bg-white rounded-full" />
+                      <div className="w-2 h-2 bg-white dark:bg-slate-800 rounded-full" />
                     )}
                   </div>
-                  <span className="text-slate-700 font-medium">{option.text}</span>
+                  <span className="text-slate-700 dark:text-slate-300 font-medium">{option.text}</span>
                 </div>
               </motion.button>
             ))}
@@ -118,7 +118,7 @@ export default function TestInterface() {
           <button
             onClick={previousQuestion}
             disabled={currentQuestion === 1}
-            className="flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-100 text-slate-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-200 transition-colors"
+            className="flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-100 text-slate-700 dark:text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-200 dark:hover:bg-slate-600 dark:bg-slate-700 transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
             Previous

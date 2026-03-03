@@ -2,53 +2,29 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import {
   Mail,
   Phone,
   MapPin,
   Facebook,
-  Twitter,
   Instagram,
   Linkedin,
-  ArrowRight,
 } from "lucide-react";
 import { siteConfig, navigation } from "@/lib/data";
+
+function PinterestIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
+    </svg>
+  );
+}
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-slate-900 text-slate-300">
-      {/* CTA Section */}
-      <div className="border-b border-slate-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <span className="inline-block px-4 py-1.5 bg-blue-900/40 text-blue-300 text-sm font-medium rounded-lg mb-4">
-              PARTNER WITH NORTH STAR ACADEMY
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-              Ready to transform your institution?
-            </h2>
-            <p className="text-lg text-slate-400 mb-8">
-              Let&apos;s build something extraordinary together.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors"
-            >
-              Start a Conversation
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-          </motion.div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -56,11 +32,11 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/north-star-logo.png"
+                src="/brand-logo-header-darkmode.png"
                 alt={siteConfig.name}
-                width={500}
-                height={150}
-                className="h-[60px] md:h-[120px] w-auto"
+                width={160}
+                height={48}
+                className="h-[29px] md:h-[38px] w-auto"
               />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -69,13 +45,14 @@ export function Footer() {
             <div className="flex gap-3">
               {[
                 { icon: Facebook, href: siteConfig.socialLinks.facebook },
-                { icon: Twitter, href: siteConfig.socialLinks.twitter },
                 { icon: Instagram, href: siteConfig.socialLinks.instagram },
                 { icon: Linkedin, href: siteConfig.socialLinks.linkedin },
+                { icon: PinterestIcon, href: siteConfig.socialLinks.pinterest },
               ].map((social, index) => (
                 <Link
                   key={index}
                   href={social.href}
+                  target="_blank"
                   className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 hover:bg-blue-700 transition-colors"
                 >
                   <social.icon className="h-5 w-5" />

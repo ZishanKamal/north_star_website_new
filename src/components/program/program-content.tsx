@@ -11,46 +11,44 @@ import {
   Users,
   Clock,
   Award,
-  Heart,
-  Brain,
-  MessageSquare,
-  Settings,
+  Cpu,
   Code,
   BarChart3,
-  Cpu,
-  HeartHandshake,
+  Monitor,
+  Settings,
+  TrendingUp,
   Briefcase,
-  Globe,
+  HeartHandshake,
+  CheckCircle,
 } from "lucide-react";
 import { openPrograms, siteConfig } from "@/lib/data";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const iconMap: { [key: string]: React.ElementType } = {
-  Heart,
-  Brain,
-  MessageSquare,
-  Settings,
-  Code,
-  BarChart3,
   Cpu,
-  HeartHandshake,
+  Award,
+  BarChart3,
+  Code,
+  Monitor,
+  Settings,
+  TrendingUp,
   Briefcase,
-  Globe,
+  HeartHandshake,
 };
 
 const colorMap: {
-  [key: string]: { gradient: string; light: string; dark: string };
+  [key: string]: { gradient: string; light: string; dark: string; bg: string; text: string };
 } = {
-  rose: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
-  purple: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "" },
-  blue: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
-  orange: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
-  green: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "" },
-  cyan: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
-  violet: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "" },
-  pink: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "" },
-  amber: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "" },
+  violet: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "", bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400" },
+  blue: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "", bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400" },
+  green: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "", bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400" },
+  orange: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "", bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400" },
+  cyan: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "", bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400" },
+  purple: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "", bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400" },
+  rose: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "", bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400" },
+  amber: { gradient: "bg-blue-700", light: "bg-slate-50", dark: "", bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400" },
+  pink: { gradient: "bg-blue-600", light: "bg-slate-50", dark: "", bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400" },
 };
 
 interface ProgramContentProps {
@@ -58,11 +56,12 @@ interface ProgramContentProps {
 }
 
 export default function ProgramContent({ program }: ProgramContentProps) {
-  const Icon = iconMap[program.icon] || Heart;
+  const Icon = iconMap[program.icon] || Cpu;
   const colors = colorMap[program.color] || colorMap.blue;
 
+  // Show other programs (excluding current) as related
   const relatedPrograms = openPrograms
-    .filter((p) => p.category === program.category && p.id !== program.id)
+    .filter((p) => p.id !== program.id)
     .slice(0, 3);
 
   const features = [
@@ -93,9 +92,6 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                 <div className={`w-16 h-16 rounded-2xl ${colors.gradient} flex items-center justify-center shadow-lg`}>
                   <Icon className="h-8 w-8 text-white" />
                 </div>
-                <span className={`px-4 py-1.5 ${colors.gradient} text-white text-sm font-medium rounded-lg capitalize`}>
-                  {program.category.replace("-", " ")}
-                </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -103,7 +99,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
               </h1>
 
               <p className="text-xl text-slate-500 mb-8">
-                {program.tagline}
+                {program.description}
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -131,36 +127,28 @@ export default function ProgramContent({ program }: ProgramContentProps) {
         </div>
       </section>
 
-      {/* Program Details */}
+      {/* Key Outcomes + Features */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-12">
+              {/* Key Outcomes */}
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <h2 className="text-2xl font-bold mb-6">About This Program</h2>
-                <div className="prose prose-lg max-w-none">
-                  {program.description.split("\n\n").map((paragraph, i) => (
-                    <p key={i} className="text-slate-500 leading-relaxed">
-                      {paragraph}
-                    </p>
+                <h2 className="text-2xl font-bold mb-6">Key Outcomes</h2>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {program.outcomes.map((outcome, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+                    >
+                      <CheckCircle className={`w-5 h-5 mt-0.5 flex-shrink-0 ${colors.text}`} />
+                      <span className="text-slate-700 dark:text-slate-300">{outcome}</span>
+                    </div>
                   ))}
                 </div>
               </motion.div>
 
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <h2 className="text-2xl font-bold mb-6">Program Objective</h2>
-                <Card className="bg-slate-50 border-0">
-                  <CardContent className="p-6">
-                    <div className="flex gap-4">
-                      <div className={`flex-shrink-0 w-12 h-12 rounded-xl ${colors.gradient} flex items-center justify-center`}>
-                        <Target className="h-6 w-6 text-white" />
-                      </div>
-                      <p className="text-slate-600">{program.objective}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
+              {/* What You'll Get */}
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h2 className="text-2xl font-bold mb-6">What You&apos;ll Get</h2>
                 <div className="grid sm:grid-cols-2 gap-6">
@@ -168,12 +156,12 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                     <Card key={index} className="hover:shadow-md transition-shadow">
                       <CardContent className="p-6">
                         <div className="flex gap-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
-                            <feature.icon className="h-6 w-6 text-blue-700" />
+                          <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center">
+                            <feature.icon className="h-6 w-6 text-blue-700 dark:text-blue-400" />
                           </div>
                           <div>
                             <h3 className="font-semibold mb-1">{feature.label}</h3>
-                            <p className="text-sm text-slate-500">{feature.description}</p>
+                            <p className="text-sm text-slate-500 dark:text-slate-400">{feature.description}</p>
                           </div>
                         </div>
                       </CardContent>
@@ -203,7 +191,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                         "Access to materials",
                         "Community support",
                       ].map((item, index) => (
-                        <li key={index} className="flex items-center gap-3 text-slate-500">
+                        <li key={index} className="flex items-center gap-3 text-slate-500 dark:text-slate-400">
                           <Check className="h-5 w-5 text-green-500" />
                           {item}
                         </li>
@@ -223,9 +211,9 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                         </a>
                       </Button>
                     </div>
-                    <p className="text-center text-sm text-slate-500">
+                    <p className="text-center text-sm text-slate-500 dark:text-slate-400">
                       Have questions?{" "}
-                      <Link href="/contact" className="text-blue-700 hover:underline">
+                      <Link href="/contact" className="text-blue-700 dark:text-blue-400 hover:underline">
                         Contact us
                       </Link>
                     </p>
@@ -239,7 +227,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
 
       {/* Related Programs */}
       {relatedPrograms.length > 0 && (
-        <section className="py-24 bg-slate-50">
+        <section className="py-24 bg-slate-50 dark:bg-slate-900">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -247,13 +235,13 @@ export default function ProgramContent({ program }: ProgramContentProps) {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">Related Programs</h2>
-              <p className="text-slate-500">Explore other programs in the same category</p>
+              <h2 className="text-3xl font-bold mb-4">More Programs</h2>
+              <p className="text-slate-500 dark:text-slate-400">Explore other programs that may interest you</p>
             </motion.div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {relatedPrograms.map((related, index) => {
-                const RelatedIcon = iconMap[related.icon] || Heart;
+                const RelatedIcon = iconMap[related.icon] || Cpu;
                 const relatedColors = colorMap[related.color] || colorMap.blue;
 
                 return (
@@ -274,10 +262,12 @@ export default function ProgramContent({ program }: ProgramContentProps) {
                           </div>
                         </div>
                         <CardContent className="p-5">
-                          <h3 className="font-semibold group-hover:text-blue-700 transition-colors mb-2">
+                          <h3 className="font-semibold group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors mb-2">
                             {related.title}
                           </h3>
-                          <p className="text-sm text-slate-500 line-clamp-2">{related.tagline}</p>
+                          <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">
+                            {related.description}
+                          </p>
                         </CardContent>
                       </Card>
                     </Link>
@@ -295,7 +285,7 @@ export default function ProgramContent({ program }: ProgramContentProps) {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <Award className="h-16 w-16 mx-auto text-yellow-500 mb-6" />
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl text-slate-500 mb-8">
+            <p className="text-xl text-slate-500 dark:text-slate-400 mb-8">
               Join our community of learners and transform your skills with North Star Academy.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

@@ -1,8 +1,16 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
   --foreground: #1e293b;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #e2e8f0;
 }
 
 @theme inline {
@@ -14,6 +22,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Clean scrollbar */
@@ -23,6 +32,10 @@ body {
 
 ::-webkit-scrollbar-track {
   background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
 }
 
 ::-webkit-scrollbar-thumb {

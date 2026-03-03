@@ -34,17 +34,17 @@ export default function AdminLanding() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-slate-50 flex items-center justify-center px-4 pt-24 md:pt-28">
-        <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8 border border-slate-100">
+      <div className="min-h-screen flex items-center justify-center px-4 pt-24 md:pt-28">
+        <div className="max-w-md w-full bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 border border-slate-100 dark:border-slate-700">
           <div className="flex items-center justify-center mb-6">
             <div className="p-4 bg-blue-700 rounded-full">
               <Lock className="w-8 h-8 text-white" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-center text-slate-900 mb-2">
+          <h1 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-2">
             Admin Portal
           </h1>
-          <p className="text-center text-slate-600 mb-8">
+          <p className="text-center text-slate-600 dark:text-slate-400 mb-8">
             Enter password to access admin features
           </p>
           <div className="space-y-4">
@@ -54,7 +54,7 @@ export default function AdminLanding() {
               onChange={(e) => setPassword(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleLogin()}
               placeholder="Enter admin password"
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-white text-slate-900 focus:border-blue-600 focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-slate-600 bg-white text-slate-900 dark:text-white focus:border-blue-600 focus:outline-none transition-colors"
             />
             {error && (
               <p className="text-red-500 text-sm text-center">{error}</p>
@@ -72,19 +72,19 @@ export default function AdminLanding() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-slate-50 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-12">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-12">
       <div className="max-w-5xl w-full text-center relative">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
             Admin Portal
           </h1>
-          <p className="text-xl sm:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto">
+          <p className="text-xl sm:text-2xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
             Manage assessments, tokens, leads, and bulk operations
           </p>
           <button
             onClick={handleLogout}
-            className="absolute top-0 right-0 flex items-center gap-2 px-4 py-2 text-sm text-slate-600 hover:text-red-600 transition-colors"
+            className="absolute top-0 right-0 flex items-center gap-2 px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:text-red-600 transition-colors"
           >
             <LogOut className="w-4 h-4" />
             Logout
@@ -95,7 +95,7 @@ export default function AdminLanding() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div
             onClick={() => router.push("/assessment/admin/tokens")}
-            className="group bg-white rounded-2xl shadow-xl p-8 cursor-pointer hover:shadow-2xl transition-all transform hover:-translate-y-1 border border-slate-100"
+            className="group bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 cursor-pointer hover:shadow-2xl transition-all transform hover:-translate-y-1 border border-slate-100 dark:border-slate-700"
           >
             <div className="flex items-start justify-between mb-6">
               <div className="p-4 bg-cyan-600 rounded-2xl">
@@ -103,11 +103,11 @@ export default function AdminLanding() {
               </div>
               <ArrowRight className="w-6 h-6 text-slate-400 group-hover:text-cyan-600 transition-colors" />
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-3">Token Management</h2>
-            <p className="text-slate-600 mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Token Management</h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-4">
               Generate access tokens for full assessments with custom features and expiry dates
             </p>
-            <ul className="space-y-2 text-sm text-slate-500">
+            <ul className="space-y-2 text-sm text-slate-500 dark:text-slate-400">
               <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-cyan-600 rounded-full flex-shrink-0 mt-1.5"></div><span className="text-left">Create new tokens</span></li>
               <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-cyan-600 rounded-full flex-shrink-0 mt-1.5"></div><span className="text-left">Set expiry dates &amp; usage limits</span></li>
               <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-cyan-600 rounded-full flex-shrink-0 mt-1.5"></div><span className="text-left">Configure feature access</span></li>
@@ -117,7 +117,7 @@ export default function AdminLanding() {
 
           <div
             onClick={() => router.push("/assessment/admin/leads")}
-            className="group bg-white rounded-2xl shadow-xl p-8 cursor-pointer hover:shadow-2xl transition-all transform hover:-translate-y-1 border border-slate-100"
+            className="group bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 cursor-pointer hover:shadow-2xl transition-all transform hover:-translate-y-1 border border-slate-100 dark:border-slate-700"
           >
             <div className="flex items-start justify-between mb-6">
               <div className="p-4 bg-emerald-600 rounded-2xl">
@@ -125,11 +125,11 @@ export default function AdminLanding() {
               </div>
               <ArrowRight className="w-6 h-6 text-slate-400 group-hover:text-emerald-600 transition-colors" />
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-3">Lead Management</h2>
-            <p className="text-slate-600 mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Lead Management</h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-4">
               View and manage all assessment leads with filtering and export options
             </p>
-            <ul className="space-y-2 text-sm text-slate-500">
+            <ul className="space-y-2 text-sm text-slate-500 dark:text-slate-400">
               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>View all leads</li>
               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>Filter by status &amp; assessment type</li>
               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>Export to CSV</li>
@@ -139,7 +139,7 @@ export default function AdminLanding() {
 
           <div
             onClick={() => router.push("/assessment/admin/bulk-upload")}
-            className="group bg-white rounded-2xl shadow-xl p-8 cursor-pointer hover:shadow-2xl transition-all transform hover:-translate-y-1 border border-slate-100"
+            className="group bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 cursor-pointer hover:shadow-2xl transition-all transform hover:-translate-y-1 border border-slate-100 dark:border-slate-700"
           >
             <div className="flex items-start justify-between mb-6">
               <div className="p-4 bg-orange-600 rounded-2xl">
@@ -147,11 +147,11 @@ export default function AdminLanding() {
               </div>
               <ArrowRight className="w-6 h-6 text-slate-400 group-hover:text-orange-600 transition-colors" />
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-3">Bulk Reports</h2>
-            <p className="text-slate-600 mb-4">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Bulk Reports</h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-4">
               Upload CSV to generate PDF reports for multiple students at once
             </p>
-            <ul className="space-y-2 text-sm text-slate-500">
+            <ul className="space-y-2 text-sm text-slate-500 dark:text-slate-400">
               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-orange-600 rounded-full"></div>Upload Google Forms CSV</li>
               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-orange-600 rounded-full"></div>Preview scores &amp; filter students</li>
               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-orange-600 rounded-full"></div>Select specific students</li>

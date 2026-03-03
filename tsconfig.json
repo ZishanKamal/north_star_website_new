@@ -36,6 +36,7 @@
   ],
   "exclude": [
     "node_modules",
-    "emotional-state-assessment-main"
+    "emotional-state-assessment-main",
+    "north_star_website_old_project"
   ]
 }

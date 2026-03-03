@@ -14,16 +14,16 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center rounded-xl bg-slate-50 border border-slate-200 p-12 md:p-16"
+          className="max-w-4xl mx-auto text-center rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-12 md:p-16"
         >
-          <div className="w-16 h-16 rounded-xl bg-blue-50 flex items-center justify-center mx-auto mb-6">
-            <Handshake className="w-8 h-8 text-blue-700" />
+          <div className="w-16 h-16 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mx-auto mb-6">
+            <Handshake className="w-8 h-8 text-blue-700 dark:text-blue-400" />
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             Partner With Us
           </h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
             Transform your institution&apos;s training outcomes. Let&apos;s
             design a customized program that develops your students into
             industry-ready professionals.

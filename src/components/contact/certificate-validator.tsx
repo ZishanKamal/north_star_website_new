@@ -58,13 +58,13 @@ export default function CertificateValidator() {
           className="max-w-2xl mx-auto"
         >
           <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 flex items-center justify-center mx-auto mb-4">
               <Award className="w-7 h-7" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <h2 className="text-2xl md:text-3xl font-bold dark:text-white mb-2">
               Certificate Validation
             </h2>
-            <p className="text-slate-500">
+            <p className="text-slate-500 dark:text-slate-400">
               Verify the authenticity of a North Star Academy certificate. Enter the
               details below and we&apos;ll send the validation result to your email.
             </p>
@@ -77,8 +77,8 @@ export default function CertificateValidator() {
                   <div className="w-14 h-14 rounded-full bg-green-500/10 text-green-500 flex items-center justify-center mx-auto mb-4">
                     <Check className="w-7 h-7" />
                   </div>
-                  <p className="font-semibold text-lg mb-1">Verification Sent!</p>
-                  <p className="text-sm text-slate-500">{message}</p>
+                  <p className="font-semibold text-lg mb-1 dark:text-white">Verification Sent!</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">{message}</p>
                   <Button
                     variant="outline"
                     size="sm"
@@ -99,21 +99,21 @@ export default function CertificateValidator() {
                       value={certificateId}
                       onChange={(e) => setCertificateId(e.target.value)}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                       placeholder="e.g. NS-2025-00123"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">
                       <Mail className="w-3.5 h-3.5 inline mr-1" />
-                      Email Address *
+                      Your Email Address *
                     </label>
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all"
                       placeholder="you@example.com"
                     />
                   </div>

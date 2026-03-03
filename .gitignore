@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+WebsiteRedisgn/
+north_star_website_old_project/
+Trusted by Leading Institutions/
+
+# unused source assets (originals kept locally, not needed in repo)
+/brand_logo/
+/banner/

@@ -6,7 +6,7 @@ export const siteConfig = {
   tagline: "Developing Leaders, Empowering Institutions",
   subtitle: "From Classrooms to Careers",
   description:
-    "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
+    "North Star partners with schools and colleges \u2014 while also empowering individual learners \u2014 to deliver transformative learning experiences that integrate emotional intelligence, technical excellence, and career readiness, with a strong mission to enhance employability and unlock opportunities in Tier-II cities.",
   url: "https://northstaronline.in",
   email: "connect@northstaronline.in",
   phone: "+91 9241959311",
@@ -18,14 +18,14 @@ export const siteConfig = {
     full: "01 4th Floor, Rali Grand Mall, Main Road, Ranchi 834001 (Jharkhand)",
   },
   hours: {
-    weekdays: "Monday - Friday: 09:00 - 20:00",
-    saturday: "Saturday: 10:30 - 22:00",
+    weekdays: "Monday - Saturday: 9:30 AM - 6:30 PM",
+    saturday: "Sunday: 10:00 AM - 2:00 PM",
   },
   socialLinks: {
-    facebook: "#",
-    twitter: "#",
-    instagram: "#",
-    linkedin: "#",
+    facebook: "https://www.facebook.com/NorthStarAcademi/",
+    instagram: "https://www.instagram.com/northstaracademi/?hl=en",
+    linkedin: "https://www.linkedin.com/company/northstaronline/?viewAsMember=true",
+    pinterest: "https://in.pinterest.com/NorthStarAcademy24/",
   },
   externalLinks: {
     careerCounselling: "https://northstaracademy.allegiance-educare.in/",
@@ -98,6 +98,7 @@ export const navigation = {
         { name: "Emotional State Assessment", href: "/assessment" },
       ],
     },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ],
   footer: {
@@ -111,6 +112,7 @@ export const navigation = {
       { name: "Home", href: "/" },
       { name: "About Us", href: "/about" },
       { name: "Our Approach", href: "/approach" },
+      { name: "Blog", href: "/blog" },
       { name: "Partner With Us", href: "/contact" },
       { name: "Emotional State Assessment", href: "/assessment" },
     ],
@@ -122,30 +124,30 @@ export const navigation = {
 export const statistics = [
   {
     id: 1,
-    value: 50,
+    value: 15,
     suffix: "+",
-    label: "Institutional Partners",
+    label: "Partnered With",
     description: "Schools and colleges trust our programs",
   },
   {
     id: 2,
-    value: 10000,
+    value: 2500,
     suffix: "+",
     label: "Students Impacted",
-    description: "Across schools and universities nationwide",
+    description: "Across schools and colleges",
   },
   {
     id: 3,
-    value: 200,
+    value: 25,
     suffix: "+",
     label: "Programs Delivered",
     description: "Customized workshops and training sessions",
   },
   {
     id: 4,
-    value: 95,
+    value: 90,
     suffix: "%",
-    label: "Partner Satisfaction",
+    label: "CSAT Satisfaction",
     description: "Institutions recommend our programs",
   },
 ];
@@ -153,13 +155,16 @@ export const statistics = [
 // --- PARTNER LOGOS (Trusted By) ---
 
 export const partners = [
-  { name: "BIT Mesra", initials: "BIT", color: "bg-orange-600", logo: "/images/partners/bit-mesra.jpg" },
-  { name: "Loyola School", initials: "LS", color: "bg-red-600", logo: "/images/partners/loyola-school.jpg" },
-  { name: "IIM Ranchi", initials: "IIM", color: "bg-blue-600", logo: "/images/partners/iim-ranchi.png" },
-  { name: "DPS Ranchi", initials: "DPS", color: "bg-sky-600", logo: "/images/partners/dps-ranchi.jpg" },
-  { name: "Ranchi University", initials: "RU", color: "bg-teal-600", logo: "/images/partners/ranchi-university.png" },
-  { name: "St. Anthony's School", initials: "SA", color: "bg-green-600", logo: "/images/partners/st-anthony.png" },
-  { name: "St. Xavier's College, Ranchi", initials: "SXC", color: "bg-indigo-600", logo: "/images/partners/xavier-ranchi.png" },
+  { name: "CIT", initials: "CIT", color: "bg-blue-600", logo: "/images/partners/cit.jfif" },
+  { name: "RTCIT", initials: "RTC", color: "bg-orange-600", logo: "/images/partners/rtcit.jfif" },
+  { name: "UMU", initials: "UMU", color: "bg-teal-600", logo: "/images/partners/umu.png" },
+  { name: "SBU", initials: "SBU", color: "bg-red-600", logo: "/images/partners/sbu.jfif" },
+  { name: "Doranda College", initials: "DC", color: "bg-green-600", logo: "/images/partners/doranda-college.png" },
+  { name: "St Xavier's College", initials: "SXC", color: "bg-indigo-600", logo: "/images/partners/st-xaviers-college.png" },
+  { name: "St Anthony's School", initials: "SA", color: "bg-sky-600", logo: "/images/partners/st-anthonys-school.png" },
+  { name: "St Francis School", initials: "SF", color: "bg-purple-600", logo: "/images/partners/st-francis-school.jfif" },
+  { name: "Bishop Westcott Boys' School", initials: "BW", color: "bg-amber-600", logo: "/images/partners/bishop-westcott.jfif" },
+  { name: "Firayalal Public School", initials: "FPS", color: "bg-rose-600", logo: "/images/partners/firayalal-public-school.jfif" },
 ];
 
 // --- TESTIMONIALS ---
@@ -275,7 +280,7 @@ export const approachSteps = [
 export const schoolPrograms = [
   {
     id: "s1",
-    title: "Emotional Harmony Workshop",
+    title: "Empower - Emotional Agility",
     description:
       "Building self-reliance to understand and address underlying emotions. Equips students with tools to navigate complexities of emotions, fostering resilience and a balanced mindset.",
     outcomes: [
@@ -289,7 +294,7 @@ export const schoolPrograms = [
   },
   {
     id: "s2",
-    title: "Cognitive Readiness Program",
+    title: "NeuroLift - Cognitive Readiness through Power Skills",
     description:
       "Enhance cognitive abilities through engaging exercises and strategies designed to optimize mental performance, problem-solving, and decision-making skills.",
     outcomes: [
@@ -303,17 +308,59 @@ export const schoolPrograms = [
   },
   {
     id: "s3",
-    title: "Effective Communication Skills",
+    title: "TechOrbit - Creation of Digital Eco System",
     description:
-      "Enhancing communication skills using English as a medium for effective interaction, story-telling, and confident self-expression.",
+      "Creating a digital ecosystem for schools, enabling students to leverage technology for learning, collaboration, and innovation.",
     outcomes: [
-      "Confident public speaking",
-      "Clear written communication",
-      "Active listening skills",
-      "Persuasive presentation abilities",
+      "Digital literacy enhancement",
+      "Technology-enabled learning",
+      "Collaborative digital projects",
+      "Future-ready tech skills",
     ],
-    icon: "MessageSquare",
+    icon: "Monitor",
     color: "blue",
+  },
+  {
+    id: "s4",
+    title: "STEMGRID - Creation and Support in STEM Lab",
+    description:
+      "Establishing and supporting STEM labs in schools to foster hands-on learning in science, technology, engineering, and mathematics.",
+    outcomes: [
+      "Hands-on STEM experimentation",
+      "Scientific inquiry skills",
+      "Problem-solving through engineering",
+      "Cross-disciplinary thinking",
+    ],
+    icon: "Settings",
+    color: "green",
+  },
+  {
+    id: "s5",
+    title: "FutureFit - Psychometry based Personalized Career Counselling",
+    description:
+      "Personalized career counselling using psychometric assessments to help students discover their strengths, interests, and ideal career paths.",
+    outcomes: [
+      "Self-awareness of strengths",
+      "Personalized career roadmap",
+      "Informed academic choices",
+      "Confidence in future planning",
+    ],
+    icon: "TrendingUp",
+    color: "orange",
+  },
+  {
+    id: "s6",
+    title: "Complimentary Programs",
+    description:
+      "Additional workshops and sessions that complement core programs, covering topics like communication skills, leadership, and wellness.",
+    outcomes: [
+      "Well-rounded skill development",
+      "Enhanced soft skills",
+      "Leadership foundations",
+      "Holistic student growth",
+    ],
+    icon: "HeartHandshake",
+    color: "cyan",
   },
 ];
 
@@ -322,198 +369,258 @@ export const schoolPrograms = [
 export const collegePrograms = [
   {
     id: "c1",
-    title: "System Analysis & Design",
+    title: "NeuroLift - Cognitive Readiness through Power Skills",
     description:
-      "Building understanding of system analysis and design with Agile and Crisp-DM methodologies. From requirement gathering to system testing.",
+      "Enhance cognitive abilities through engaging exercises and strategies designed to optimize mental performance, problem-solving, and decision-making skills.",
     outcomes: [
-      "Understanding of SDLC methodologies",
-      "Proficiency in Agile practices",
-      "UML and OOAD fundamentals",
-      "Practical system design skills",
+      "Sharpened critical thinking",
+      "Improved memory retention",
+      "Better decision-making skills",
+      "Enhanced academic performance",
     ],
-    icon: "Settings",
-    color: "orange",
+    icon: "Brain",
+    color: "purple",
   },
   {
     id: "c2",
-    title: "Programming Languages",
+    title: "Catalyst - Job Readiness Program",
     description:
-      "Building blocks of programming using Python, Java, and SQL. Hands-on experience from foundational concepts to advanced techniques.",
-    outcomes: [
-      "Proficiency in Python, Java, SQL",
-      "Problem-solving with code",
-      "Software development best practices",
-      "Portfolio of coding projects",
-    ],
-    icon: "Code",
-    color: "green",
-  },
-  {
-    id: "c3",
-    title: "AI Ecosystem",
-    description:
-      "Understanding business analytics and artificial intelligence ecosystem — AI/ML/DL/NLP/Gen AI/LLM concepts and applications.",
-    outcomes: [
-      "Understanding of AI/ML fundamentals",
-      "Practical NLP and Gen AI exposure",
-      "Data-driven decision making",
-      "Industry-relevant AI skills",
-    ],
-    icon: "Cpu",
-    color: "violet",
-  },
-  {
-    id: "c4",
-    title: "Data Visualization",
-    description:
-      "Effective visualization of information using tools like Tableau, Power BI, and Qlik Sense to communicate insights compellingly.",
-    outcomes: [
-      "Proficiency in Tableau/Power BI",
-      "Dashboard design skills",
-      "Data storytelling abilities",
-      "Business intelligence fundamentals",
-    ],
-    icon: "BarChart3",
-    color: "cyan",
-  },
-  {
-    id: "c5",
-    title: "Industry Readiness & Placement",
-    description:
-      "Preparing aspiring professionals for the industry through career counselling, mock interviews, and job application assistance.",
+      "Comprehensive job readiness program covering technical skills, soft skills, and industry exposure to make graduates career-ready from day one.",
     outcomes: [
       "Interview preparedness",
       "Resume and profile building",
       "Workplace communication skills",
       "Career path clarity",
     ],
-    icon: "Briefcase",
-    color: "amber",
-  },
-];
-
-// --- OPEN PROGRAMS (Individual courses, rebranded) ---
-
-export const openPrograms = [
-  {
-    id: "1",
-    slug: "emotional-harmony",
-    title: "Workshop on Emotional Harmony",
-    shortTitle: "Emotional Harmony",
-    tagline: "Building Self Reliance to Understand and Address Underlying Emotions",
-    description: "Explore techniques and practices to cultivate emotional balance and resilience in both personal and professional life.\n\nThis workshop delves into the nuances of emotional intelligence and harmony, offering practical strategies to manage stress, build resilience, and cultivate positive relationships. Participants will explore techniques such as mindfulness, self-awareness, and empathetic communication to navigate challenges effectively and foster emotional well-being in personal and professional life.",
-    objective: "Enabling students to manage their emotions better to become productive contributors to society thereby strengthening the nation.",
-    category: "soft-skills",
-    icon: "Heart",
-    color: "rose",
-  },
-  {
-    id: "2",
-    slug: "cognitive-readiness",
-    title: "Workshop on Cognitive Readiness",
-    shortTitle: "Cognitive Readiness",
-    tagline: "Enhance cognitive abilities and readiness through engaging exercises",
-    description: "Cognitive readiness encompasses a range of cognitive abilities, including communication, problem-solving, strategic thinking, and collaborative leadership.\n\nEnhance cognitive abilities and readiness through engaging exercises and strategies designed to optimize mental performance and decision-making skills.",
-    objective: "Helping students to assess their power skills and become self-aware and productive individuals.",
-    category: "soft-skills",
-    icon: "Brain",
-    color: "purple",
-  },
-  {
-    id: "3",
-    slug: "business-communication",
-    title: "Effective Business Communication",
-    shortTitle: "Business Communication",
-    tagline: "Using English as a medium for effective communication and story-telling",
-    description: "Master the art of communication in the business world, learning to convey ideas clearly, build rapport, and navigate professional interactions effectively.\n\nEffective communication lies at the heart of successful businesses. This course equips participants with the necessary skills and techniques to articulate ideas clearly, influence stakeholders, and foster collaborative relationships.",
-    objective: "Enable individuals to use English effectively to communicate thoughts and ideas.",
-    category: "soft-skills",
-    icon: "MessageSquare",
-    color: "blue",
-  },
-  {
-    id: "4",
-    slug: "system-analysis-and-design",
-    title: "System Analysis and Design",
-    shortTitle: "System Analysis & Design",
-    tagline: "Building understanding of System Analysis and design with Agile and Crisp-DM",
-    description: "Gain insights into the principles and methodologies of system analysis and design, equipping yourself with essential skills for developing robust and scalable systems.",
-    objective: "Understanding System Analysis and design with delivery models, OOAD and UML. Special focus on Agile and Crisp-DM.",
-    category: "technical",
-    icon: "Settings",
+    icon: "TrendingUp",
     color: "orange",
   },
   {
-    id: "5",
-    slug: "programming-languages",
-    title: "Specializing in Programming Languages",
-    shortTitle: "Programming Languages",
-    tagline: "Building blocks of programming using Python, Java and SQL",
-    description: "Dive deep into various programming languages, honing your expertise and proficiency in coding, debugging, and software development.",
-    objective: "Developing deep conceptual understanding and practical application of Python, Java and SQL.",
-    category: "technical",
+    id: "c3",
+    title: "FutureFit - Psychometry based Personalized Career Counselling",
+    description:
+      "Personalized career counselling using psychometric assessments to help students discover their strengths, interests, and ideal career paths.",
+    outcomes: [
+      "Self-awareness of strengths",
+      "Personalized career roadmap",
+      "Informed academic choices",
+      "Confidence in future planning",
+    ],
+    icon: "Award",
+    color: "cyan",
+  },
+  {
+    id: "c4",
+    title: "ProForge - Internships and Projects",
+    description:
+      "Hands-on internships and real-world projects that bridge the gap between academic learning and industry demands.",
+    outcomes: [
+      "Real-world project experience",
+      "Industry mentorship",
+      "Portfolio of completed projects",
+      "Professional network building",
+    ],
     icon: "Code",
     color: "green",
   },
   {
-    id: "6",
-    slug: "data-visualization",
-    title: "Data Visualization",
-    shortTitle: "Data Visualization",
-    tagline: "Effective visualization of Information",
-    description: "Unlock the power of data visualization techniques to transform complex information into insightful visual representations, enabling better decision-making and communication.",
-    objective: "Develop understanding of tools like Tableau, Power BI and Qlik Sense for data visualization.",
-    category: "technical",
-    icon: "BarChart3",
-    color: "cyan",
+    id: "c5",
+    title: "Complimentary Programs",
+    description:
+      "Additional workshops and sessions that complement core programs, covering topics like communication, leadership, and professional development.",
+    outcomes: [
+      "Well-rounded skill development",
+      "Enhanced soft skills",
+      "Leadership foundations",
+      "Holistic professional growth",
+    ],
+    icon: "HeartHandshake",
+    color: "amber",
   },
+];
+
+// --- OPEN PROGRAMS (Individual courses) ---
+
+export const openPrograms = [
   {
-    id: "7",
-    slug: "artificial-intelligence-ecosystem",
-    title: "Artificial Intelligence Eco System",
-    shortTitle: "AI Ecosystem",
-    tagline: "Understanding business analytics ecosystem",
-    description: "Explore the intricate ecosystem of artificial intelligence, learning about its applications, advancements, and ethical considerations shaping the future of technology.",
-    objective: "Enable individuals to understand and apply concepts on AI/ML/DL/NLP/Gen AI/LLM",
-    category: "technical",
+    id: "1",
+    slug: "masterclass-with-ai-toolsets",
+    title: "Masterclass with AI Toolsets",
+    description:
+      "Hands-on masterclass exploring the latest AI tools and platforms — from prompt engineering to AI-powered productivity. Learn to leverage cutting-edge AI toolsets for real-world applications.",
+    outcomes: [
+      "Proficiency in leading AI tools",
+      "Prompt engineering mastery",
+      "AI-powered workflow automation",
+      "Practical AI integration skills",
+    ],
     icon: "Cpu",
     color: "violet",
   },
   {
+    id: "2",
+    slug: "professional-diploma-in-intelligent-computing",
+    title: "Professional Diploma in Intelligent Computing",
+    description:
+      "Comprehensive diploma program covering the foundations and applications of intelligent computing — from machine learning to deep learning and beyond.",
+    outcomes: [
+      "Industry-recognized diploma",
+      "Deep learning fundamentals",
+      "Intelligent system design",
+      "Capstone project portfolio",
+    ],
+    icon: "Award",
+    color: "blue",
+  },
+  {
+    id: "3",
+    slug: "financial-computation-tally-excel",
+    title: "Financial Computation using Tally & Advance Excel",
+    description:
+      "Master financial computation using Tally ERP and advanced Excel techniques. Learn accounting automation, MIS reporting, and data-driven financial analysis.",
+    outcomes: [
+      "Tally ERP proficiency",
+      "Advanced Excel formulas & macros",
+      "Financial reporting automation",
+      "MIS dashboard creation",
+    ],
+    icon: "BarChart3",
+    color: "green",
+  },
+  {
+    id: "4",
+    slug: "mastering-programming-languages",
+    title: "Mastering Programming in Java, Python, C++, SQL",
+    description:
+      "Build deep expertise across major programming languages — Java, Python, C++, and SQL. From foundational concepts to advanced techniques with hands-on projects.",
+    outcomes: [
+      "Multi-language proficiency",
+      "Problem-solving with code",
+      "Software development best practices",
+      "Portfolio of coding projects",
+    ],
+    icon: "Code",
+    color: "orange",
+  },
+  {
+    id: "5",
+    slug: "data-engineering-and-visualization",
+    title: "Data Engineering & Visualization",
+    description:
+      "Learn to build data pipelines and create compelling visualizations using tools like Tableau, Power BI, and Python libraries for data-driven decision making.",
+    outcomes: [
+      "Data pipeline design",
+      "Proficiency in Tableau/Power BI",
+      "Data storytelling abilities",
+      "ETL and data warehousing basics",
+    ],
+    icon: "BarChart3",
+    color: "cyan",
+  },
+  {
+    id: "6",
+    slug: "ai-ml-eco-system",
+    title: "AI/ML Eco System",
+    description:
+      "Explore the complete AI/ML ecosystem — from machine learning and deep learning to NLP, Gen AI, and large language models. Understand applications and ethical considerations.",
+    outcomes: [
+      "Understanding of AI/ML fundamentals",
+      "Practical NLP and Gen AI exposure",
+      "Model training and evaluation",
+      "Industry-relevant AI skills",
+    ],
+    icon: "Cpu",
+    color: "purple",
+  },
+  {
+    id: "7",
+    slug: "web-development-html-js-css",
+    title: "Web Development with HTML, JS, CSS",
+    description:
+      "Master front-end web development from the ground up — HTML for structure, CSS for styling, and JavaScript for interactivity. Build responsive, modern websites.",
+    outcomes: [
+      "Responsive web design",
+      "JavaScript programming skills",
+      "Modern CSS techniques",
+      "Portfolio of web projects",
+    ],
+    icon: "Monitor",
+    color: "blue",
+  },
+  {
     id: "8",
-    slug: "counselling-services",
-    title: "Counselling Services",
-    shortTitle: "Counselling Services",
-    tagline: "Academic counselling and prepare aspiring professionals",
-    description: "Develop counselling skills tailored for contexts, preparing to support individuals and teams in navigating professional challenges and achieving personal growth.",
-    objective: "Help individuals in selection of academic path through career counselling, mock interviews and assistance in applying for jobs.",
-    category: "career",
-    icon: "HeartHandshake",
-    color: "pink",
+    slug: "full-stack-with-mern",
+    title: "Full Stack with MERN",
+    description:
+      "Become a full-stack developer using the MERN stack — MongoDB, Express.js, React, and Node.js. Build complete web applications from front-end to back-end.",
+    outcomes: [
+      "Full-stack development skills",
+      "RESTful API design",
+      "React front-end proficiency",
+      "Database management with MongoDB",
+    ],
+    icon: "Code",
+    color: "green",
   },
   {
     id: "9",
-    slug: "industry-readiness",
-    title: "Industry Readiness",
-    shortTitle: "Industry Readiness",
-    tagline: "Prepare aspiring professionals for the industry",
-    description: "Development skills tailored for industry contexts, preparing to support individuals and teams in navigating professional challenges and achieving personal growth.",
-    objective: "Help individuals in preparing for job interviews through career counselling, mock interviews and assistance in applying for jobs.",
-    category: "career",
+    slug: "computational-problem-solving-dsa",
+    title: "Computational Problem Solving - Data Structures and Algorithms",
+    description:
+      "Strengthen your problem-solving foundation with data structures and algorithms. Essential for technical interviews and building efficient software systems.",
+    outcomes: [
+      "Algorithmic thinking",
+      "Data structure mastery",
+      "Competitive programming skills",
+      "Technical interview readiness",
+    ],
+    icon: "Settings",
+    color: "orange",
+  },
+  {
+    id: "10",
+    slug: "psychometry-based-career-pathing",
+    title: "Psychometry Based Personalized Career Pathing",
+    description:
+      "Discover your ideal career through psychometric assessments. Personalized career counselling based on aptitude, personality, and interest profiling.",
+    outcomes: [
+      "Self-awareness of strengths",
+      "Personalized career roadmap",
+      "Informed career decisions",
+      "Confidence in future planning",
+    ],
+    icon: "TrendingUp",
+    color: "rose",
+  },
+  {
+    id: "11",
+    slug: "it-projects-internships",
+    title: "IT Projects/Internships",
+    description:
+      "Gain real-world experience through guided IT projects and internships. Bridge the gap between academic learning and industry expectations with mentored project work.",
+    outcomes: [
+      "Real-world project experience",
+      "Industry mentorship",
+      "Portfolio of completed projects",
+      "Professional network building",
+    ],
     icon: "Briefcase",
     color: "amber",
   },
   {
-    id: "10",
-    slug: "study-abroad",
-    title: "Study Abroad",
-    shortTitle: "Study Abroad",
-    tagline: "Prepare for international opportunities",
-    description: "Prepare aspiring professionals for international academic and career opportunities through comprehensive guidance and preparation programs.",
-    objective: "Help individuals in preparing for international education through counselling, test preparation, and application assistance.",
-    category: "career",
-    icon: "Globe",
-    color: "blue",
+    id: "12",
+    slug: "catalyst-job-readiness-program",
+    title: "Catalyst - Job Readiness Program",
+    description:
+      "Comprehensive job readiness program covering resume building, interview preparation, workplace communication, and professional skills to make you career-ready from day one.",
+    outcomes: [
+      "Interview preparedness",
+      "Resume and profile building",
+      "Workplace communication skills",
+      "Career path clarity",
+    ],
+    icon: "HeartHandshake",
+    color: "pink",
   },
 ];
 
@@ -628,11 +735,11 @@ export const faqs = [
   },
   {
     question: "What types of programs do you offer for schools?",
-    answer: "For schools, we offer Emotional Harmony workshops, Cognitive Readiness programs, and Effective Communication Skills training — all designed to build a strong foundation in students.",
+    answer: "Our school programs include:\n\n• Empower - Emotional Agility\n• NeuroLift - Cognitive Readiness through Power Skills\n• TechOrbit - Creation of Digital Eco System\n• STEMGRID - Creation and Support in STEM Lab\n• FutureFit - Psychometry based Personalized Career Counselling\n• Complimentary Programs",
   },
   {
     question: "What programs are available for colleges?",
-    answer: "Our college programs include System Analysis & Design, Programming Languages (Python, Java, SQL), AI Ecosystem, Data Visualization, and Industry Readiness & Placement preparation.",
+    answer: "Our college/university programs include:\n\n• NeuroLift - Cognitive Readiness through Power Skills\n• Catalyst - Job Readiness Program\n• FutureFit - Psychometry based Personalized Career Counselling\n• ProForge - Internships and Projects\n• Complimentary Programs",
   },
   {
     question: "Can programs be customized for our institution?",
@@ -655,3 +762,220 @@ export const faqs = [
     answer: "Yes! Our Open Programs section offers courses for individual enrollment. These include all our signature programs available for self-paced or scheduled learning.",
   },
 ];
+
+// --- INDUSTRY STATISTICS ("The Numbers That Drive Us") ---
+
+export const industryStatistics = [
+  {
+    id: 1,
+    value: 42,
+    suffix: "%",
+    label: "Of India's under-25 graduates are unemployed",
+    source: "Azim Premji University",
+  },
+  {
+    id: 2,
+    value: 3.8,
+    suffix: "%",
+    label: "Of engineers have skills needed for software jobs",
+    source: "Deccan Herald",
+  },
+  {
+    id: 3,
+    value: 72.5,
+    suffix: "%",
+    label: "Of students experience negative emotions",
+    source: "Researchgate",
+  },
+  {
+    id: 4,
+    value: 1,
+    prefix: "$",
+    suffix: "Tn",
+    label: "AI contribution to India's economy by 2035",
+    source: "The Hindu",
+  },
+];
+
+// --- NEWS & BLOG ---
+
+export const blogs = [
+  {
+    id: "1",
+    slug: "restless-relentless",
+    title: "Restless & Relentless",
+    excerpt:
+      "Discover the mindset that drives success in today's competitive world. Learn how to channel your inner drive into productive outcomes.",
+    date: "March 6, 2024",
+    readTime: "5 min read",
+    category: "Career Growth",
+    image: "blog-1.png",
+  },
+  {
+    id: "2",
+    slug: "outcome-based-service-delivery-model",
+    title: "Outcome based Service Delivery Model",
+    excerpt:
+      "Learn how outcome-based approaches transform education delivery and create measurable results for learners.",
+    date: "March 6, 2024",
+    readTime: "7 min read",
+    category: "Professional Development",
+    image: "blog-2.png",
+  },
+  {
+    id: "3",
+    slug: "indians-more-afraid-of-ai-taking-away-jobs",
+    title: "Indians more afraid of AI taking away jobs than their global peers",
+    excerpt:
+      "A Randstad survey reveals 1 in 2 Indians are worried about AI taking their jobs — significantly higher than the global average.",
+    date: "March 6, 2024",
+    readTime: "6 min read",
+    category: "AI & Jobs",
+    image: "blog-3.png",
+  },
+  {
+    id: "4",
+    slug: "why-is-emotional-intelligence-important-for-students",
+    title: "Why is emotional intelligence important for students?",
+    excerpt:
+      "The crucial role of EI in academic and professional success. Discover how emotional intelligence shapes better outcomes for students.",
+    date: "March 6, 2024",
+    readTime: "8 min read",
+    category: "Soft Skills",
+    image: "blog-4.png",
+  },
+  {
+    id: "5",
+    slug: "companies-see-training-best-way-to-fill-demand-for-ai-talent",
+    title: "Companies see training a best way to fill demand for AI talent, say educators",
+    excerpt:
+      "With a 74% growth in AI/ML roles, organizations are increasingly investing in upskilling programs to bridge the AI talent gap.",
+    date: "March 6, 2024",
+    readTime: "5 min read",
+    category: "AI & Jobs",
+    image: "blog-5.png",
+  },
+  {
+    id: "6",
+    slug: "ai-to-have-positive-short-term-impact-on-jobs",
+    title: "AI to have positive short-term impact on jobs, find global survey",
+    excerpt:
+      "An Indeed/Censuswide survey finds 85% of employers believe AI will have a positive impact on hiring and job creation in the near term.",
+    date: "March 7, 2024",
+    readTime: "5 min read",
+    category: "AI & Jobs",
+    image: "blog-6.png",
+  },
+  {
+    id: "7",
+    slug: "in-india-degrees-of-unemployability",
+    title: "In India, degrees of unemployability",
+    excerpt:
+      "A Bloomberg investigation reveals the depth of India's education-to-employment crisis and the growing gap between degrees and employability.",
+    date: "March 7, 2024",
+    readTime: "8 min read",
+    category: "Education",
+    image: "blog-7.png",
+  },
+  {
+    id: "8",
+    slug: "worthless-degrees-creating-unemployable-generation",
+    title: "Worthless degrees are creating an unemployable generation in India",
+    excerpt:
+      "India's $117 billion education industry is producing graduates who lack the skills employers need, creating a systemic employability crisis.",
+    date: "March 7, 2024",
+    readTime: "9 min read",
+    category: "Education",
+    image: "blog-8.png",
+  },
+  {
+    id: "9",
+    slug: "why-indian-engineers-are-unemployable",
+    title: "Why Indian Engineers are Unemployable & what's the solutions",
+    excerpt:
+      "India produces 1.5 million engineers annually, yet only 3.8% are employable. An in-depth analysis of the root causes and actionable solutions.",
+    date: "March 7, 2024",
+    readTime: "15 min read",
+    category: "Education",
+    image: "blog-9.png",
+  },
+  {
+    id: "10",
+    slug: "47-graduates-in-india-unemployable",
+    title: "47% graduates in India are unemployable for any job: Report",
+    excerpt:
+      "The Wheebox India Skills Report reveals that nearly half of Indian graduates lack the skills required for employment, with employability varying widely by sector.",
+    date: "March 7, 2024",
+    readTime: "6 min read",
+    category: "Education",
+    image: "blog-10-1.png",
+  },
+  {
+    id: "11",
+    slug: "ais-impact-on-indias-recruitment-landscape",
+    title: "AI's impact on India's recruitment landscape – Expectations and Beliefs",
+    excerpt:
+      "An Indeed report shows 85% of Indian employers expect AI to create more jobs than it displaces, reshaping the country's recruitment practices.",
+    date: "March 7, 2024",
+    readTime: "6 min read",
+    category: "AI & Jobs",
+    image: "blog-11.png",
+  },
+  {
+    id: "12",
+    slug: "indians-more-afraid-of-ai-2",
+    title: "Indians more afraid of AI taking away jobs than their global peers",
+    excerpt:
+      "A deeper look at the Randstad Workmonitor survey and why Indian workers' fear of AI-driven job displacement exceeds the global average.",
+    date: "March 7, 2024",
+    readTime: "5 min read",
+    category: "AI & Jobs",
+    image: "blog-12.png",
+  },
+  {
+    id: "13",
+    slug: "the-future-of-jobs-report-2023",
+    title: "The Future of Jobs Report 2023",
+    excerpt:
+      "Key insights from the World Economic Forum's fourth edition survey of 803 companies across 45 economies on macrotrends shaping the future of work.",
+    date: "March 7, 2024",
+    readTime: "10 min read",
+    category: "Career Growth",
+    image: "blog-13.png",
+  },
+  {
+    id: "14",
+    slug: "are-you-a-fresher-looking-for-job",
+    title: "Are you a fresher looking for job? These are your must-have skills",
+    excerpt:
+      "In today's competitive employment landscape, a degree alone isn't enough. Discover the essential skills freshers need to stay relevant and job-ready.",
+    date: "March 7, 2024",
+    readTime: "7 min read",
+    category: "Career Growth",
+    image: "blog-14.png",
+  },
+  {
+    id: "15",
+    slug: "employees-seek-personal-value-and-purpose",
+    title: "Employees Seek Personal Value and Purpose at Work. Be Prepared to Deliver.",
+    excerpt:
+      "Gartner research reveals that 82% of employees want to be seen as people, not just workers. The era of the traditional employment contract is over.",
+    date: "March 9, 2024",
+    readTime: "8 min read",
+    category: "Workplace Culture",
+    image: "blog-15-1.png",
+  },
+  {
+    id: "16",
+    slug: "how-can-you-use-ei-to-improve-career",
+    title: "How can you use EI to improve your career prospects?",
+    excerpt:
+      "Emotional intelligence is a dynamic skill you can develop throughout your life. Learn six practical steps to leverage EI for career success.",
+    date: "March 9, 2024",
+    readTime: "7 min read",
+    category: "Soft Skills",
+    image: "blog-16.png",
+  },
+];
+
+export const blogPosts = blogs;

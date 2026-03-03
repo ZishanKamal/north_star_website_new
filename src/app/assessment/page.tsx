@@ -11,7 +11,7 @@ export default function AssessmentPage() {
   const currentScreen = useAppStore((state) => state.currentScreen);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-slate-50 pt-24 md:pt-28">
+    <main className="min-h-screen pt-24 md:pt-28">
       {currentScreen === "landing" && <LandingPage />}
       {currentScreen === "studentInfo" && <StudentInfoForm />}
       {currentScreen === "instructions" && <Instructions />}

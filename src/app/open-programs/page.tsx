@@ -1,198 +1,130 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowRight,
-  Heart,
-  Brain,
-  MessageSquare,
-  Settings,
-  Code,
-  BarChart3,
   Cpu,
-  HeartHandshake,
+  Award,
+  BarChart3,
+  Code,
+  Monitor,
+  Settings,
+  TrendingUp,
   Briefcase,
-  Globe,
+  HeartHandshake,
+  CheckCircle,
   Users,
 } from "lucide-react";
 import { openPrograms } from "@/lib/data";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-const iconMap: { [key: string]: React.ElementType } = {
-  Heart,
-  Brain,
-  MessageSquare,
-  Settings,
-  Code,
-  BarChart3,
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Cpu,
-  HeartHandshake,
+  Award,
+  BarChart3,
+  Code,
+  Monitor,
+  Settings,
+  TrendingUp,
   Briefcase,
-  Globe,
+  HeartHandshake,
 };
 
-const colorMap: { [key: string]: string } = {
-  rose: "bg-blue-600",
-  purple: "bg-blue-700",
-  blue: "bg-blue-600",
-  orange: "bg-blue-600",
-  green: "bg-blue-700",
-  cyan: "bg-blue-600",
-  violet: "bg-blue-700",
-  pink: "bg-blue-600",
-  amber: "bg-blue-700",
-  teal: "bg-blue-600",
-};
-
-const categories = [
-  { id: "all", label: "All Programs" },
-  { id: "soft-skills", label: "Soft Skills" },
-  { id: "technical", label: "Technical" },
-  { id: "career", label: "Career" },
-];
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.05 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+const colorMap: Record<string, { bg: string; text: string; border: string }> = {
+  violet: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", border: "border-slate-200 dark:border-slate-700" },
+  blue: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", border: "border-slate-200 dark:border-slate-700" },
+  green: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", border: "border-slate-200 dark:border-slate-700" },
+  orange: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", border: "border-slate-200 dark:border-slate-700" },
+  cyan: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", border: "border-slate-200 dark:border-slate-700" },
+  purple: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", border: "border-slate-200 dark:border-slate-700" },
+  rose: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", border: "border-slate-200 dark:border-slate-700" },
+  amber: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", border: "border-slate-200 dark:border-slate-700" },
+  pink: { bg: "bg-blue-50 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", border: "border-slate-200 dark:border-slate-700" },
 };
 
 export default function OpenProgramsPage() {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredPrograms =
-    activeCategory === "all"
-      ? openPrograms
-      : openPrograms.filter((p) => p.category === activeCategory);
-
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-slate-50">
+      <section className="pt-32 pb-16 bg-slate-50 dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center"
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto text-center"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200 text-sm font-medium text-blue-700 mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-sm font-medium text-blue-700 dark:text-blue-400 mb-6">
               <Users className="w-4 h-4" />
               Individual Enrollment
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 dark:text-white">
               Open{" "}
-              <span className="text-blue-700">
+              <span className="text-blue-700 dark:text-blue-400">
                 Programs
               </span>
             </h1>
-            <p className="max-w-2xl mx-auto text-lg text-slate-500">
-              Explore our signature training programs available for individual
-              enrollment — from soft skills to technical excellence and career readiness.
+            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed">
+              Explore our training programs available for individual enrollment
+              — from AI and programming to career readiness and beyond.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Programs Section */}
+      {/* Programs */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          {/* Category Filter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex flex-wrap justify-center gap-3 mb-12"
-          >
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category.id
-                    ? "bg-blue-700 text-white shadow-sm"
-                    : "bg-slate-100 text-slate-500 hover:bg-slate-200"
-                }`}
-              >
-                {category.label}
-              </button>
-            ))}
-          </motion.div>
-
-          {/* Program Grid */}
-          <motion.div
-            variants={container}
-            initial="hidden"
-            animate="show"
-            key={activeCategory}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
-          >
-            {filteredPrograms.map((program) => {
-              const Icon = iconMap[program.icon] || Heart;
-              const gradientClass =
-                colorMap[program.color] || "bg-blue-600";
+          <div className="max-w-5xl mx-auto space-y-12">
+            {openPrograms.map((program, index) => {
+              const Icon = iconMap[program.icon] || Cpu;
+              const colors = colorMap[program.color] || colorMap.blue;
 
               return (
-                <motion.div key={program.id} variants={item}>
-                  <Link href={`/open-programs/${program.slug}`}>
-                    <Card className="group h-full cursor-pointer hover:scale-[1.02] transition-all duration-300">
-                      <div
-                        className={`h-32 ${gradientClass} rounded-t-xl relative overflow-hidden`}
-                      >
-                        <div className="absolute bottom-4 left-6">
-                          <div className="w-14 h-14 rounded-xl bg-white/30 flex items-center justify-center">
-                            <Icon className="h-7 w-7 text-white" />
-                          </div>
-                        </div>
-                        <div className="absolute top-4 right-4">
-                          <span className="px-3 py-1 bg-white/30 text-white text-xs font-medium rounded-full capitalize">
-                            {program.category.replace("-", " ")}
-                          </span>
-                        </div>
+                <motion.div
+                  key={program.id}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  className={`rounded-xl border ${colors.border} bg-white dark:bg-slate-800 p-8 md:p-10`}
+                >
+                  <div className="grid md:grid-cols-3 gap-8">
+                    <div className="md:col-span-2">
+                      <div className={`w-12 h-12 rounded-lg ${colors.bg} ${colors.text} flex items-center justify-center mb-4`}>
+                        <Icon className="w-6 h-6" />
                       </div>
-
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-xl group-hover:text-blue-700 transition-colors">
-                          {program.title}
-                        </CardTitle>
-                      </CardHeader>
-
-                      <CardContent>
-                        <p className="text-slate-500 text-sm line-clamp-3 mb-4">
-                          {program.tagline}
-                        </p>
-                        <div className="flex items-center gap-2 text-sm font-medium text-blue-700">
-                          Learn more
-                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                      <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white">
+                        {program.title}
+                      </h3>
+                      <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
+                        {program.description}
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm uppercase tracking-wider text-slate-400 mb-4">
+                        Key Outcomes
+                      </h4>
+                      <ul className="space-y-3">
+                        {program.outcomes.map((outcome) => (
+                          <li key={outcome} className="flex items-start gap-2 text-sm">
+                            <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${colors.text}`} />
+                            {outcome}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}
-          </motion.div>
-
-          {filteredPrograms.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-slate-500">
-                No programs found in this category.
-              </p>
-            </div>
-          )}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-slate-50 dark:bg-slate-900">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -202,7 +134,7 @@ export default function OpenProgramsPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Looking for Institutional Programs?
             </h2>
-            <p className="text-lg text-slate-500 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
               We also deliver customized training at your institution. Explore our
               institutional partnership options.
             </p>

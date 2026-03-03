@@ -35,21 +35,21 @@ const methodIconMap: Record<string, React.ComponentType<{ className?: string }>>
 const stageColors = [
   {
     bg: "",
-    icon: "text-blue-700 bg-blue-50",
-    border: "border-slate-200",
-    badge: "bg-blue-50 text-blue-700",
+    icon: "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30",
+    border: "border-slate-200 dark:border-slate-700",
+    badge: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400",
   },
   {
     bg: "",
-    icon: "text-blue-700 bg-blue-50",
-    border: "border-slate-200",
-    badge: "bg-blue-50 text-blue-700",
+    icon: "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30",
+    border: "border-slate-200 dark:border-slate-700",
+    badge: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400",
   },
   {
     bg: "",
-    icon: "text-blue-700 bg-blue-50",
-    border: "border-slate-200",
-    badge: "bg-blue-50 text-blue-700",
+    icon: "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30",
+    border: "border-slate-200 dark:border-slate-700",
+    badge: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function ApproachPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-slate-50">
+      <section className="pt-32 pb-16 bg-slate-50 dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -65,17 +65,17 @@ export default function ApproachPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200 text-sm font-medium text-blue-700 mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-sm font-medium text-blue-700 dark:text-blue-400 mb-6">
               <Target className="w-4 h-4" />
               Our Methodology
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               From Classrooms{" "}
-              <span className="text-blue-700">
+              <span className="text-blue-700 dark:text-blue-400">
                 to Careers
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed">
               Our structured approach guides students through every stage — building
               emotional foundations in schools, technical excellence in colleges, and
               career readiness for the workforce.
@@ -96,7 +96,7 @@ export default function ApproachPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               The North Star Academy Journey
             </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
               Three integrated stages that prepare students for lifelong success.
             </p>
           </motion.div>
@@ -127,13 +127,13 @@ export default function ApproachPage() {
                     <h3 className="text-2xl md:text-3xl font-bold mb-4">
                       {step.title}
                     </h3>
-                    <p className="text-slate-500 leading-relaxed mb-6">
+                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
                       {step.description}
                     </p>
                     <div className="space-y-2">
                       {step.programs.map((prog) => (
                         <div key={prog} className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-blue-700 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-blue-700 dark:text-blue-400 flex-shrink-0" />
                           <span className="text-sm font-medium">{prog}</span>
                         </div>
                       ))}
@@ -160,7 +160,7 @@ export default function ApproachPage() {
       </section>
 
       {/* Methodology */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-slate-50 dark:bg-slate-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -168,14 +168,14 @@ export default function ApproachPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 border border-blue-200 text-sm font-medium text-blue-700 mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-sm font-medium text-blue-700 dark:text-blue-400 mb-4">
               <Lightbulb className="w-4 h-4" />
               What Makes Us Different
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Training Methodology
             </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
               We go beyond traditional teaching with methods designed for lasting impact.
             </p>
           </motion.div>
@@ -190,13 +190,13 @@ export default function ApproachPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-xl border border-slate-200 p-6 text-center hover:shadow-lg transition-all duration-300"
+                  className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 text-center hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-14 h-14 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-7 h-7" />
                   </div>
                   <h3 className="font-bold mb-2">{method.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
                     {method.description}
                   </p>
                 </motion.div>
@@ -218,7 +218,7 @@ export default function ApproachPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Transform Your Institution?
             </h2>
-            <p className="text-lg text-slate-500 mb-8">
+            <p className="text-lg text-slate-500 dark:text-slate-400 mb-8">
               Let&apos;s design a customized training roadmap for your students.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

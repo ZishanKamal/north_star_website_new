@@ -33,19 +33,9 @@ export async function POST(request: NextRequest) {
       </div>
     `;
 
-    // Send to user
-    await sendEmail({
-      to: email,
-      subject: `Certificate Validation Request — ${certificateId}`,
-      html,
-    });
-
     // Notify admin
     const adminEmail = process.env.ADMIN_EMAIL || "connect@northstaronline.in";
-    await sendEmail({
-      to: adminEmail,
-      subject: `[Certificate Validation] ${certificateId} — from ${email}`,
-      html: `
+    const adminHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #f59e0b, #d97706); padding: 24px; border-radius: 12px 12px 0 0;">
           <h1 style="color: white; margin: 0; font-size: 20px;">Certificate Validation Request</h1>
@@ -58,9 +48,22 @@ export async function POST(request: NextRequest) {
           </table>
           <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">— The North Star Academy Team</p>
         </div>
-      </div>`,
-      replyTo: email,
-    });
+      </div>`;
+
+    // Send both emails in parallel instead of sequentially
+    await Promise.allSettled([
+      sendEmail({
+        to: email,
+        subject: `Certificate Validation Request — ${certificateId}`,
+        html,
+      }),
+      sendEmail({
+        to: adminEmail,
+        subject: `[Certificate Validation] ${certificateId} — from ${email}`,
+        html: adminHtml,
+        replyTo: email,
+      }),
+    ]);
 
     return NextResponse.json({
       message: "Validation request received. We'll email you the results within 24-48 hours.",

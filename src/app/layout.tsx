@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { siteConfig } from "@/lib/data";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -54,13 +56,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} font-sans antialiased bg-white text-slate-800`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${poppins.variable} font-sans antialiased bg-gradient-to-br from-blue-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-200`}>
+        <ThemeProvider>
         <div className="relative min-h-screen flex flex-col">
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        </ThemeProvider>
         {/* Organization JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -72,7 +76,7 @@ export default function RootLayout({
               url: "https://northstaronline.in",
               logo: "https://northstaronline.in/north-star-logo.png",
               description:
-                "We partner with schools and colleges to deliver transformative training programs that develop leaders, build career-ready graduates, and empower institutions to achieve excellence.",
+                siteConfig.description,
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "01 4th Floor, Rali Grand Mall, Main Road",

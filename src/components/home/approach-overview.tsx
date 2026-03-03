@@ -15,7 +15,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export default function ApproachOverview() {
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-20 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,10 +24,10 @@ export default function ApproachOverview() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             From Classrooms to Careers
           </h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
             Our structured approach guides students through every stage of their
             development journey.
           </p>
@@ -37,21 +37,21 @@ export default function ApproachOverview() {
           <div className="relative">
             {/* Connecting line */}
             <div className="hidden md:block absolute top-[6.75rem] left-[8%] right-[8%] h-0.5 z-0">
-              <div className="h-full bg-slate-200" />
+              <div className="h-full bg-slate-200 dark:bg-slate-700" />
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {approachSteps.map((step, index) => {
                 const Icon = iconMap[step.icon] || School;
                 const colors = [
-                  "text-blue-700 bg-blue-50",
-                  "text-blue-700 bg-blue-50",
-                  "text-blue-700 bg-blue-50",
+                  "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30",
+                  "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30",
+                  "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30",
                 ];
                 const stageColors = [
-                  "text-blue-700",
-                  "text-blue-700",
-                  "text-blue-700",
+                  "text-blue-700 dark:text-blue-400",
+                  "text-blue-700 dark:text-blue-400",
+                  "text-blue-700 dark:text-blue-400",
                 ];
 
                 return (
@@ -72,8 +72,8 @@ export default function ApproachOverview() {
                     >
                       <Icon className="w-8 h-8" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                    <p className="text-slate-500 leading-relaxed text-sm">
+                    <h3 className="text-xl font-bold mb-3 dark:text-white">{step.title}</h3>
+                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
                       {step.description}
                     </p>
                   </motion.div>

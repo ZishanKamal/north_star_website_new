@@ -22,11 +22,11 @@ export default function Instructions() {
         animate={{ opacity: 1, y: 0 }}
         className="max-w-3xl w-full"
       >
-        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-100">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4 text-center">
+        <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-100 dark:border-slate-700">
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4 text-center">
             Before You Begin
           </h1>
-          <p className="text-lg text-slate-600 text-center mb-12">
+          <p className="text-lg text-slate-600 dark:text-slate-400 text-center mb-12">
             Please read these instructions carefully
           </p>
 
@@ -37,22 +37,22 @@ export default function Instructions() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl"
+                className="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700 rounded-xl"
               >
                 <div className="flex-shrink-0">
                   <step.icon className="w-8 h-8 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">{step.title}</h3>
-                  <p className="text-slate-600">{step.description}</p>
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-1">{step.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400">{step.description}</p>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <div className="bg-blue-50 rounded-xl p-6 mb-8">
-            <h3 className="font-semibold text-blue-900 mb-2">Important Notes:</h3>
-            <ul className="space-y-2 text-blue-800">
+          <div className="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-6 mb-8">
+            <h3 className="font-semibold text-blue-900 dark:text-blue-300 mb-2">Important Notes:</h3>
+            <ul className="space-y-2 text-blue-800 dark:text-blue-300">
               <li>&bull; Your progress will be auto-saved</li>
               <li>&bull; Answer based on how you typically behave</li>
               <li>&bull; The timer will start when you click &quot;Begin Test&quot;</li>

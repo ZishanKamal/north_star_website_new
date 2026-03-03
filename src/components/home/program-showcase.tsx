@@ -12,14 +12,15 @@ import {
   ChevronRight,
   Heart,
   Brain,
-  MessageSquare,
+  Monitor,
   Settings,
   Code,
   Cpu,
   BarChart3,
   Briefcase,
   HeartHandshake,
-  Globe,
+  TrendingUp,
+  Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -27,14 +28,15 @@ import { Button } from "@/components/ui/button";
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Heart,
   Brain,
-  MessageSquare,
+  Monitor,
   Settings,
   Code,
   Cpu,
   BarChart3,
   Briefcase,
   HeartHandshake,
-  Globe,
+  TrendingUp,
+  Award,
   School,
   GraduationCap,
 };
@@ -68,22 +70,25 @@ const tabs: MainTab[] = [
     subCategories: [
       {
         label: "For Schools",
-        count: 3,
+        count: 6,
         programs: [
-          { id: "s1", title: "Emotional Harmony Workshop", icon: "Heart", href: "/for-schools" },
-          { id: "s2", title: "Cognitive Readiness Program", icon: "Brain", href: "/for-schools" },
-          { id: "s3", title: "Effective Communication Skills", icon: "MessageSquare", href: "/for-schools" },
+          { id: "s1", title: "Empower - Emotional Agility", icon: "Heart", href: "/for-schools" },
+          { id: "s2", title: "NeuroLift - Cognitive Readiness through Power Skills", icon: "Brain", href: "/for-schools" },
+          { id: "s3", title: "TechOrbit - Creation of Digital Eco System", icon: "Monitor", href: "/for-schools" },
+          { id: "s4", title: "STEMGRID - Creation and Support in STEM Lab", icon: "Settings", href: "/for-schools" },
+          { id: "s5", title: "FutureFit - Psychometry based Personalized Career Counselling", icon: "TrendingUp", href: "/for-schools" },
+          { id: "s6", title: "Complimentary Programs", icon: "HeartHandshake", href: "/for-schools" },
         ],
       },
       {
         label: "For Colleges",
         count: 5,
         programs: [
-          { id: "c1", title: "System Analysis & Design", icon: "Settings", href: "/for-colleges" },
-          { id: "c2", title: "Programming Languages", icon: "Code", href: "/for-colleges" },
-          { id: "c3", title: "AI Ecosystem", icon: "Cpu", href: "/for-colleges" },
-          { id: "c4", title: "Data Visualization", icon: "BarChart3", href: "/for-colleges" },
-          { id: "c5", title: "Industry Readiness & Placement", icon: "Briefcase", href: "/for-colleges" },
+          { id: "c1", title: "NeuroLift - Cognitive Readiness through Power Skills", icon: "Brain", href: "/for-colleges" },
+          { id: "c2", title: "Catalyst - Job Readiness Program", icon: "TrendingUp", href: "/for-colleges" },
+          { id: "c3", title: "FutureFit - Psychometry based Personalized Career Counselling", icon: "Award", href: "/for-colleges" },
+          { id: "c4", title: "ProForge - Internships and Projects", icon: "Code", href: "/for-colleges" },
+          { id: "c5", title: "Complimentary Programs", icon: "HeartHandshake", href: "/for-colleges" },
         ],
       },
     ],
@@ -95,31 +100,21 @@ const tabs: MainTab[] = [
     icon: Users,
     subCategories: [
       {
-        label: "Soft Skills",
-        count: 3,
+        label: "All Programs",
+        count: 12,
         programs: [
-          { id: "o1", title: "Workshop on Emotional Harmony", icon: "Heart", href: "/open-programs/emotional-harmony" },
-          { id: "o2", title: "Workshop on Cognitive Readiness", icon: "Brain", href: "/open-programs/cognitive-readiness" },
-          { id: "o3", title: "Effective Business Communication", icon: "MessageSquare", href: "/open-programs/business-communication" },
-        ],
-      },
-      {
-        label: "Technical",
-        count: 4,
-        programs: [
-          { id: "o4", title: "System Analysis and Design", icon: "Settings", href: "/open-programs/system-analysis-and-design" },
-          { id: "o5", title: "Programming Languages", icon: "Code", href: "/open-programs/programming-languages" },
-          { id: "o6", title: "Data Visualization", icon: "BarChart3", href: "/open-programs/data-visualization" },
-          { id: "o7", title: "AI Ecosystem", icon: "Cpu", href: "/open-programs/artificial-intelligence-ecosystem" },
-        ],
-      },
-      {
-        label: "Career",
-        count: 3,
-        programs: [
-          { id: "o8", title: "Counselling Services", icon: "HeartHandshake", href: "/open-programs/counselling-services" },
-          { id: "o9", title: "Industry Readiness", icon: "Briefcase", href: "/open-programs/industry-readiness" },
-          { id: "o10", title: "Study Abroad", icon: "Globe", href: "/open-programs/study-abroad" },
+          { id: "o1", title: "Masterclass with AI Toolsets", icon: "Cpu", href: "/open-programs/masterclass-with-ai-toolsets" },
+          { id: "o2", title: "Professional Diploma in Intelligent Computing", icon: "Award", href: "/open-programs/professional-diploma-in-intelligent-computing" },
+          { id: "o3", title: "Financial Computation using Tally & Advance Excel", icon: "BarChart3", href: "/open-programs/financial-computation-tally-excel" },
+          { id: "o4", title: "Mastering Programming in Java, Python, C++, SQL", icon: "Code", href: "/open-programs/mastering-programming-languages" },
+          { id: "o5", title: "Data Engineering & Visualization", icon: "BarChart3", href: "/open-programs/data-engineering-and-visualization" },
+          { id: "o6", title: "AI/ML Eco System", icon: "Cpu", href: "/open-programs/ai-ml-eco-system" },
+          { id: "o7", title: "Web Development with HTML, JS, CSS", icon: "Monitor", href: "/open-programs/web-development-html-js-css" },
+          { id: "o8", title: "Full Stack with MERN", icon: "Code", href: "/open-programs/full-stack-with-mern" },
+          { id: "o9", title: "Computational Problem Solving - DSA", icon: "Settings", href: "/open-programs/computational-problem-solving-dsa" },
+          { id: "o10", title: "Psychometry Based Personalized Career Pathing", icon: "TrendingUp", href: "/open-programs/psychometry-based-career-pathing" },
+          { id: "o11", title: "IT Projects/Internships", icon: "Briefcase", href: "/open-programs/it-projects-internships" },
+          { id: "o12", title: "Catalyst - Job Readiness Program", icon: "HeartHandshake", href: "/open-programs/catalyst-job-readiness-program" },
         ],
       },
     ],
@@ -130,25 +125,25 @@ const tabs: MainTab[] = [
 
 /* ─── Card component ─── */
 function ProgramCardItem({ program }: { program: ProgramCard }) {
-  const Icon = iconMap[program.icon] || Heart;
+  const Icon = iconMap[program.icon] || Cpu;
 
   return (
     <div className="flex-shrink-0 w-[220px] sm:w-[250px] md:w-[280px]">
-      <div className="h-full rounded-xl border border-slate-200 bg-blue-50/40 p-6 flex flex-col">
-        <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center mb-5 ml-auto">
+      <div className="h-full rounded-xl border border-slate-200 dark:border-slate-700 bg-blue-50/40 dark:bg-slate-800/60 p-6 flex flex-col">
+        <div className="w-12 h-12 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 flex items-center justify-center mb-5 ml-auto">
           <Icon className="w-6 h-6 text-amber-500" />
         </div>
-        <h3 className="font-semibold text-slate-800 text-sm md:text-base leading-snug mb-6 min-h-[40px] md:min-h-[44px]">
+        <h3 className="font-semibold text-slate-800 dark:text-slate-200 text-sm md:text-base leading-snug mb-6 min-h-[40px] md:min-h-[44px]">
           {program.title}
         </h3>
         <div className="flex gap-2 mt-auto">
           <Link href={program.href}>
-            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-blue-700 text-blue-700 bg-white hover:bg-blue-700 hover:text-white transition-colors">
+            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-blue-700 dark:border-blue-500 text-blue-700 dark:text-blue-400 bg-white dark:bg-slate-800 hover:bg-blue-700 hover:text-white transition-colors">
               View
             </button>
           </Link>
           <Link href="/contact">
-            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-blue-700 text-blue-700 bg-white hover:bg-blue-700 hover:text-white transition-colors">
+            <button className="px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm font-semibold rounded-full border border-blue-700 dark:border-blue-500 text-blue-700 dark:text-blue-400 bg-white dark:bg-slate-800 hover:bg-blue-700 hover:text-white transition-colors">
               Enquire
             </button>
           </Link>
@@ -214,11 +209,11 @@ export default function ProgramShowcase() {
   }, []);
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white dark:bg-slate-950">
       <div className="container mx-auto px-4">
         {/* Main tabs */}
         <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-slate-100 rounded-xl p-1.5 gap-1.5">
+          <div className="inline-flex bg-slate-100 dark:bg-slate-800 rounded-xl p-1.5 gap-1.5">
             {tabs.map((tab, i) => {
               const TabIcon = tab.icon;
               const isActive = i === activeTab;
@@ -228,8 +223,8 @@ export default function ProgramShowcase() {
                   onClick={() => setActiveTab(i)}
                   className={`relative flex items-center gap-2.5 px-5 md:px-8 py-3 md:py-3.5 rounded-lg transition-all duration-200 text-xs md:text-sm font-semibold ${
                     isActive
-                      ? "bg-white text-blue-700 shadow-md"
-                      : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
+                      ? "bg-white dark:bg-slate-700 text-blue-700 dark:text-blue-400 shadow-md"
+                      : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700"
                   }`}
                 >
                   <TabIcon className={`w-5 h-5 ${isActive ? "text-blue-600" : ""}`} />
@@ -250,7 +245,7 @@ export default function ProgramShowcase() {
             transition={{ duration: 0.2 }}
             className="flex justify-center mb-10"
           >
-            <div className="flex gap-1 border-b border-slate-200">
+            <div className="flex gap-1 border-b border-slate-200 dark:border-slate-700">
               {currentTab.subCategories.map((sub, i) => {
                 const isActive = i === activeSub;
                 return (
@@ -259,12 +254,12 @@ export default function ProgramShowcase() {
                     onClick={() => setActiveSub(i)}
                     className={`relative px-5 md:px-8 py-2.5 md:py-3 text-xs md:text-sm font-semibold transition-colors ${
                       isActive
-                        ? "text-blue-700"
-                        : "text-slate-500 hover:text-slate-700"
+                        ? "text-blue-700 dark:text-blue-400"
+                        : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
                     }`}
                   >
                     {sub.label}
-                    <span className="ml-1.5 text-[10px] md:text-xs font-medium px-1.5 py-0.5 rounded-full bg-slate-100 text-slate-500">
+                    <span className="ml-1.5 text-[10px] md:text-xs font-medium px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400">
                       {sub.count}
                     </span>
                     {isActive && (
@@ -294,7 +289,7 @@ export default function ProgramShowcase() {
             {/* Left arrow */}
             <button
               onClick={() => scroll("left")}
-              className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm items-center justify-center text-blue-700 hover:bg-blue-50 transition-all duration-200 ${
+              className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm items-center justify-center text-blue-700 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-all duration-200 ${
                 canScrollLeft ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
               }`}
             >
@@ -315,7 +310,7 @@ export default function ProgramShowcase() {
             {/* Right arrow */}
             <button
               onClick={() => scroll("right")}
-              className={`hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm items-center justify-center text-blue-700 hover:bg-blue-50 transition-all duration-200 ${
+              className={`hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm items-center justify-center text-blue-700 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 transition-all duration-200 ${
                 canScrollRight ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
               }`}
             >
@@ -327,7 +322,7 @@ export default function ProgramShowcase() {
 {/* Explore more */}
         <div className="text-center mt-8">
           <Link href={currentTab.exploreHref}>
-            <Button className="border border-blue-700 text-blue-700 bg-white hover:bg-blue-700 hover:text-white rounded-full px-8 transition-colors">
+            <Button className="border border-blue-700 dark:border-blue-500 text-blue-700 dark:text-blue-400 bg-white dark:bg-slate-800 hover:bg-blue-700 hover:text-white rounded-full px-8 transition-colors">
               {currentTab.exploreLabel}
             </Button>
           </Link>

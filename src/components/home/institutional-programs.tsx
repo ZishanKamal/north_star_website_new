@@ -51,10 +51,10 @@ export default function InstitutionalPrograms() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
             Programs That Transform
           </h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
             Tailored training solutions for every stage of the academic journey —
             from school foundations to career readiness.
           </p>
@@ -73,18 +73,18 @@ export default function InstitutionalPrograms() {
               >
                 <Link href={card.href} className="block group h-full">
                   <div
-                    className={`h-full rounded-xl border ${card.borderColor} bg-white p-8 transition-all duration-200 hover:shadow-md hover:-translate-y-1`}
+                    className={`h-full rounded-xl border ${card.borderColor} dark:border-slate-700 bg-white dark:bg-slate-800 p-8 transition-all duration-200 hover:shadow-md hover:-translate-y-1`}
                   >
                     <div
-                      className={`w-14 h-14 rounded-lg bg-blue-50 flex items-center justify-center mb-6 ${card.iconColor}`}
+                      className={`w-14 h-14 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-6 ${card.iconColor} dark:text-blue-400`}
                     >
                       <Icon className="w-7 h-7" />
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-slate-900">{card.title}</h3>
-                    <p className="text-slate-500 mb-6 leading-relaxed">
+                    <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">{card.title}</h3>
+                    <p className="text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
                       {card.description}
                     </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 group-hover:gap-3 transition-all">
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 dark:text-blue-400 group-hover:gap-3 transition-all">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>

@@ -45,8 +45,8 @@ export default function StudentInfoForm() {
     if (error) setError("");
   };
 
-  const inputClass = "w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-white text-slate-900 focus:border-blue-600 focus:outline-none transition-colors";
-  const labelClass = "block text-sm font-semibold text-slate-700 mb-2";
+  const inputClass = "w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-slate-600 bg-white text-slate-900 dark:text-white focus:border-blue-600 focus:outline-none transition-colors";
+  const labelClass = "block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2";
 
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
@@ -60,7 +60,7 @@ export default function StudentInfoForm() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-100"
+          className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-100 dark:border-slate-700"
         >
           <div className="flex items-center justify-center mb-6">
             <div className="p-3 bg-blue-700 rounded-full">
@@ -68,10 +68,10 @@ export default function StudentInfoForm() {
             </div>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-white mb-2">
             Student Information
           </h1>
-          <p className="text-center text-slate-600 mb-8">
+          <p className="text-center text-slate-600 dark:text-slate-400 mb-8">
             Please provide your details to continue
           </p>
 
@@ -89,7 +89,7 @@ export default function StudentInfoForm() {
             <div>
               <label className={labelClass}>WhatsApp Number <span className="text-red-500">*</span></label>
               <input type="tel" value={formData.whatsapp} onChange={(e) => handleChange("whatsapp", e.target.value)} className={inputClass} placeholder="10-digit mobile number" maxLength={10} required />
-              <p className="text-xs text-slate-500 mt-1">We&apos;ll send your assessment report to this number</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">We&apos;ll send your assessment report to this number</p>
             </div>
 
             <div>
@@ -139,15 +139,15 @@ export default function StudentInfoForm() {
               </select>
             </div>
 
-            <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-xl">
+            <div className="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-xl">
               <input type="checkbox" id="interestedInCounseling" checked={formData.interestedInCounseling} onChange={(e) => handleChange("interestedInCounseling", e.target.checked)} className="mt-1 w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500" />
-              <label htmlFor="interestedInCounseling" className="text-sm text-slate-700 cursor-pointer">
+              <label htmlFor="interestedInCounseling" className="text-sm text-slate-700 dark:text-slate-300 cursor-pointer">
                 <span className="font-semibold">I&apos;m interested in personalized counseling</span><br />
-                <span className="text-xs text-slate-600">Get expert guidance to improve your emotional intelligence</span>
+                <span className="text-xs text-slate-600 dark:text-slate-400">Get expert guidance to improve your emotional intelligence</span>
               </label>
             </div>
 
-            <div className="text-xs text-slate-500 text-center">
+            <div className="text-xs text-slate-500 dark:text-slate-400 text-center">
               By continuing, you agree to receive your assessment results and occasional updates from North Star Academy. 
               We respect your privacy and won&apos;t share your data with third parties.
             </div>
@@ -164,7 +164,7 @@ export default function StudentInfoForm() {
               <ArrowRight className="w-5 h-5" />
             </motion.button>
 
-            <p className="text-center text-sm text-slate-500 mt-4">
+            <p className="text-center text-sm text-slate-500 dark:text-slate-400 mt-4">
               <span className="text-red-500">*</span> Required field
             </p>
           </form>

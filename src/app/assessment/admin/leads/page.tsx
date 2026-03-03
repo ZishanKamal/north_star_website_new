@@ -167,7 +167,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-slate-50 p-4 md:p-8 pt-24 md:pt-28">
+    <div className="min-h-screen p-4 md:p-8 pt-24 md:pt-28">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="bg-white rounded-2xl shadow-xl p-6 mb-6 border border-slate-100">

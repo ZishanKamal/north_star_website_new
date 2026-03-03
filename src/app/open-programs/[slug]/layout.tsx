@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${program.title} | North Star Academy`,
-    description: program.tagline,
+    description: program.description,
     openGraph: {
       title: `${program.title} | North Star Academy`,
-      description: program.tagline,
+      description: program.description,
     },
   };
 }

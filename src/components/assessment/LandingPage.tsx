@@ -66,7 +66,7 @@ export default function LandingPage() {
           Emotional State Assessment
         </h1>
 
-        <p className="text-lg sm:text-xl text-slate-600 mb-12 max-w-3xl mx-auto">
+        <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
           Discover your emotional strengths and areas for growth with our
           comprehensive assessment.
         </p>
@@ -97,7 +97,7 @@ export default function LandingPage() {
           </motion.button>
         </div>
 
-        <p className="text-sm text-slate-500 mb-12">
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-12">
           Full assessment: 20 minutes &bull; Quick assessment: 5 minutes
         </p>
 
@@ -109,13 +109,13 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + index * 0.1 }}
-              className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-slate-100"
+              className="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-700"
             >
               <feature.icon className="w-10 h-10 text-blue-600 mb-4 mx-auto" />
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
                 {feature.title}
               </h3>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-slate-600 dark:text-slate-400">
                 {feature.description}
               </p>
             </motion.div>
@@ -127,12 +127,12 @@ export default function LandingPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-20 p-8 bg-blue-50 rounded-3xl"
+          className="mt-20 p-8 bg-blue-50 dark:bg-blue-900/30 rounded-3xl"
         >
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
             What is Emotional Intelligence?
           </h2>
-          <p className="text-lg text-slate-700 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
             Emotional Intelligence (EI) is the ability to understand, use, and
             manage your own emotions in positive ways to relieve stress,
             communicate effectively, empathize with others, and overcome
@@ -147,26 +147,26 @@ export default function LandingPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8"
+            className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-md w-full p-8"
           >
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
                 <div className="p-3 bg-blue-700 rounded-xl">
                   <Key className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
                   Access Token Required
                 </h2>
               </div>
               <button
                 onClick={() => setShowTokenModal(false)}
-                className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+                className="p-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:bg-slate-700 rounded-lg transition-colors"
               >
-                <X className="w-5 h-5 text-slate-500" />
+                <X className="w-5 h-5 text-slate-500 dark:text-slate-400" />
               </button>
             </div>
 
-            <p className="text-slate-600 mb-6">
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
               The full assessment requires a valid access token. Please enter your token code below:
             </p>
 
@@ -181,7 +181,7 @@ export default function LandingPage() {
                   }}
                   onKeyPress={(e) => e.key === "Enter" && handleTokenValidation()}
                   placeholder="XXXX-XXXX-XXXX"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 bg-white text-slate-900 focus:border-blue-600 focus:outline-none transition-colors font-mono text-center text-lg"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-slate-600 bg-white text-slate-900 dark:text-white focus:border-blue-600 focus:outline-none transition-colors font-mono text-center text-lg"
                   maxLength={14}
                 />
               </div>
@@ -196,7 +196,7 @@ export default function LandingPage() {
               <div className="flex gap-3">
                 <button
                   onClick={() => setShowTokenModal(false)}
-                  className="flex-1 px-6 py-3 rounded-lg bg-slate-200 text-slate-900 font-semibold hover:bg-slate-300 transition-colors"
+                  className="flex-1 px-6 py-3 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
                 >
                   Cancel
                 </button>
@@ -209,8 +209,8 @@ export default function LandingPage() {
                 </button>
               </div>
 
-              <div className="pt-4 border-t border-slate-200">
-                <p className="text-xs text-slate-500 text-center">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-600">
+                <p className="text-xs text-slate-500 dark:text-slate-400 text-center">
                   Don&apos;t have a token? Contact your administrator or try our{" "}
                   <button
                     onClick={() => {

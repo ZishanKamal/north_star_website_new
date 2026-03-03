@@ -231,9 +231,9 @@ export default function Results() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className="bg-white rounded-3xl p-8 shadow-2xl mb-12 border border-slate-100"
+          className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-2xl mb-12 border border-slate-100 dark:border-slate-700"
         >
-          <p className="text-lg text-slate-700 mb-8 text-center max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-8 text-center max-w-4xl mx-auto leading-relaxed">
             This assessment evaluates 5 different areas. The first 3 are related to <span className="font-bold">intrapersonal</span> intelligence (understanding yourself) and the last 2 are related to <span className="font-bold">interpersonal</span> intelligence (understanding others).
           </p>
 
@@ -242,21 +242,21 @@ export default function Results() {
             <div className="bg-blue-700 text-white px-6 py-3 rounded-t-2xl">
               <h3 className="text-xl font-bold">Understanding Yourself</h3>
             </div>
-            <div className="bg-slate-50 border border-slate-200 rounded-b-2xl p-6 space-y-6">
+            <div className="bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-b-2xl p-6 space-y-6">
               {categoryGroups["Understanding Yourself"].map((category) => {
                 const IconComponent = iconMap[category.icon];
                 return (
                   <div key={category.id} className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center">
+                      <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
                         <IconComponent className="w-8 h-8 text-blue-700" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold text-slate-900 mb-2">
+                      <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                         {category.name}
                       </h4>
-                      <p className="text-sm text-slate-600 leading-relaxed italic">
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed italic">
                         {category.description}
                       </p>
                     </div>
@@ -271,21 +271,21 @@ export default function Results() {
             <div className="bg-blue-700 text-white px-6 py-3 rounded-t-2xl">
               <h3 className="text-xl font-bold">Understanding Others</h3>
             </div>
-            <div className="bg-slate-50 border border-slate-200 rounded-b-2xl p-6 space-y-6">
+            <div className="bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-b-2xl p-6 space-y-6">
               {categoryGroups["Understanding Others"].map((category) => {
                 const IconComponent = iconMap[category.icon];
                 return (
                   <div key={category.id} className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center">
+                      <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
                         <IconComponent className="w-8 h-8 text-blue-700" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold text-slate-900 mb-2">
+                      <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                         {category.name}
                       </h4>
-                      <p className="text-sm text-slate-600 leading-relaxed italic">
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed italic">
                         {category.description}
                       </p>
                     </div>
@@ -311,10 +311,10 @@ export default function Results() {
           >
             <Trophy className="w-12 h-12 text-white" />
           </motion.div>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Your ESA Results
           </h1>
-          <p className="text-xl text-slate-600">
+          <p className="text-xl text-slate-600 dark:text-slate-400">
             Overall Emotional State Level: <span className={`font-bold ${getLevelColor(overallLevel)}`}>
               {overallLevel}
             </span>
@@ -340,9 +340,9 @@ export default function Results() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="bg-white rounded-3xl shadow-2xl p-8 mb-12 border border-slate-100"
+          className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-8 mb-12 border border-slate-100 dark:border-slate-700"
         >
-          <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center">
             Your Emotional Profile
           </h2>
           <SpiderChart data={results} />
@@ -360,12 +360,12 @@ export default function Results() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100"
+                className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-100 dark:border-slate-700"
               >
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                   {result.category}
                 </h3>
-                <p className="text-sm text-slate-600 mb-4">
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
                   {result.description}
                 </p>
                 <div className="flex items-center justify-between mb-2">
@@ -374,7 +374,7 @@ export default function Results() {
                     {result.level}
                   </span>
                 </div>
-                <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden mb-4">
+                <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mb-4">
                   <motion.div
                     className="h-full bg-blue-600"
                     initial={{ width: 0 }}
@@ -384,11 +384,11 @@ export default function Results() {
                 </div>
 
                 {feedback && (
-                  <div className="mt-4 pt-4 border-t border-slate-200">
-                    <p className="text-sm font-semibold text-slate-700 mb-2">
+                  <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-600">
+                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
                       Score Analysis:
                     </p>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                       {feedback}
                     </p>
                   </div>
@@ -403,20 +403,20 @@ export default function Results() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="bg-white rounded-3xl p-8 shadow-2xl mb-8 border border-slate-100"
+          className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-2xl mb-8 border border-slate-100 dark:border-slate-700"
         >
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
             Personalized Recommendations
           </h2>
           <div className="space-y-6">
             {Object.entries(recommendations).map(([category, tips]) => (
               <div key={category} className="border-l-4 border-blue-700 pl-4">
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
                   {category}
                 </h3>
                 <ul className="space-y-2">
                   {tips.map((tip, tipIndex) => (
-                    <li key={tipIndex} className="text-slate-600">
+                    <li key={tipIndex} className="text-slate-600 dark:text-slate-400">
                       • {tip}
                     </li>
                   ))}
@@ -481,25 +481,25 @@ export default function Results() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8"
+              className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-md w-full p-8"
             >
               <div className="flex flex-col items-center text-center">
                 <div className="p-4 bg-emerald-600 rounded-full mb-6">
                   <CheckCircle className="w-12 h-12 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-3">
+                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
                   Assessment Complete!
                 </h2>
-                <p className="text-lg text-slate-600 mb-2">
+                <p className="text-lg text-slate-600 dark:text-slate-400 mb-2">
                   Thank you for completing the Emotional Intelligence Assessment.
                 </p>
-                <p className="text-sm text-slate-500 mb-8">
+                <p className="text-sm text-slate-500 dark:text-slate-400 mb-8">
                   Your responses have been saved. You can return to the home page.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 w-full">
                   <button
                     onClick={() => setShowEndConfirmation(false)}
-                    className="flex-1 px-6 py-3 rounded-lg bg-slate-200 text-slate-900 font-semibold hover:bg-slate-300 transition-colors"
+                    className="flex-1 px-6 py-3 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
                   >
                     Stay on Results
                   </button>

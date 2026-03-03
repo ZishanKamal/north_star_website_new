@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siteConfig, statistics } from "@/lib/data";
 
 const banners = [
   { src: "/images/hero/banner-boy.png", alt: "Professional training" },
@@ -23,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="pt-20 md:pt-24 overflow-hidden bg-white">
+    <section className="pt-20 md:pt-24 overflow-hidden bg-white dark:bg-slate-950">
 
       {/* ── Banner with overlay on all screen sizes ── */}
       <div className="relative">
@@ -51,29 +52,24 @@ export default function Hero() {
               <div className="w-full px-4 md:px-10 lg:px-16">
                 <div className="max-w-[52%] md:max-w-xl">
                   {/* Stats */}
-                  <div className="grid grid-cols-2 md:flex md:flex-wrap gap-x-3 md:gap-x-10 gap-y-2 md:gap-y-4 mb-3 md:mb-8">
-                    {[
-                      { label: "Helped build", value: "50+", desc: "Partners" },
-                      { label: "Students", value: "10K+", desc: "Impacted" },
-                      { label: "Programs", value: "200+", desc: "Delivered" },
-                      { label: "Partner", value: "95%", desc: "Satisfaction" },
-                    ].map((stat) => (
-                      <div key={stat.desc}>
+                  <div className="grid gap-x-6 md:gap-x-10 gap-y-3 md:gap-y-4 mb-3 md:mb-8" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
+                    {statistics.map((stat) => (
+                      <div key={stat.id} className="min-w-0">
                         <p className="text-[8px] md:text-xs font-semibold text-amber-400 leading-tight">
                           {stat.label}
                         </p>
                         <p className="text-lg md:text-5xl font-bold text-amber-400 leading-none">
-                          {stat.value}
+                          {stat.value}{stat.suffix}
                         </p>
                         <p className="text-[8px] md:text-xs text-white/80 leading-tight">
-                          {stat.desc}
+                          {stat.description}
                         </p>
                       </div>
                     ))}
                   </div>
 
                   {/* Tagline */}
-                  <h1 className="text-sm sm:text-xl md:text-4xl lg:text-[3.5rem] font-bold text-white leading-tight drop-shadow-sm">
+                  <h1 className="text-sm sm:text-xl md:text-4xl lg:text-[3.5rem] font-bold text-white leading-tight drop-shadow-sm whitespace-nowrap">
                     Developing Leaders,<br />
                     Empowering Institutions
                   </h1>
@@ -98,12 +94,10 @@ export default function Hero() {
       </div>
 
       {/* ── Below banner: subtitle + CTAs ── */}
-      <div className="bg-slate-50 border-b border-slate-200">
+      <div className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
         <div className="container mx-auto px-4 md:px-8 py-8 md:py-10 flex flex-col items-center text-center gap-5">
-          <p className="text-sm md:text-lg text-slate-600 max-w-2xl leading-relaxed">
-            We partner with schools and colleges to deliver transformative
-            training programs — from emotional intelligence to technical
-            excellence and career readiness.
+          <p className="text-sm md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+            {siteConfig.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link href="/contact">
