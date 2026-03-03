@@ -1,6 +1,45 @@
 import nodemailer from "nodemailer";
 
-// Cached transporter — created once, reused across all requests.
+// ── Shared email template helpers ──────────────────────────────────
+
+const LOGO_URL = "https://northstaronline.in/brand-logo-header-darkmode.png";
+
+/**
+ * Returns branded email header with logo + title on a gradient banner.
+ * @param title  Heading text shown below the logo
+ * @param gradient  CSS gradient (default: blue/indigo)
+ */
+export function emailHeader(
+  title: string,
+  gradient = "linear-gradient(135deg, #3b82f6, #6366f1)"
+): string {
+  return `
+    <div style="background: ${gradient}; padding: 28px 24px 20px; border-radius: 12px 12px 0 0; text-align: center;">
+      <img src="${LOGO_URL}" alt="North Star Academy" style="height: 48px; margin-bottom: 14px; display: inline-block;" />
+      <h1 style="color: white; margin: 0; font-size: 18px; font-weight: 600; letter-spacing: 0.3px;">${title}</h1>
+    </div>`;
+}
+
+/**
+ * Returns branded email footer with tagline, website link and contact email.
+ */
+export function emailFooter(): string {
+  return `
+    <div style="text-align: center; padding: 20px 24px; border-top: 1px solid #e5e7eb; background: #f9fafb; border-radius: 0 0 12px 12px;">
+      <p style="margin: 0 0 6px 0; color: #374151; font-size: 13px; font-weight: 600;">North Star Academy</p>
+      <p style="margin: 0 0 10px 0; color: #6b7280; font-size: 12px;">Developing Leaders | Empowering Institutions</p>
+      <p style="margin: 0; color: #9ca3af; font-size: 12px;">
+        <a href="https://northstaronline.in" style="color: #3b82f6; text-decoration: none;">northstaronline.in</a>
+        &nbsp;&bull;&nbsp;
+        <a href="mailto:connect@northstaronline.in" style="color: #3b82f6; text-decoration: none;">connect@northstaronline.in</a>
+        &nbsp;&bull;&nbsp;
+        +91 9241959311
+      </p>
+    </div>`;
+}
+
+// ── Cached transporter ─────────────────────────────────────────────
+// Created once, reused across all requests.
 // Uses connection pooling to avoid repeated TCP/TLS/AUTH handshakes.
 let cachedTransporter: nodemailer.Transporter | null | undefined;
 

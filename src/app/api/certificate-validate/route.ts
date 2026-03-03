@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendEmail } from "@/lib/email";
+import { sendEmail, emailHeader, emailFooter } from "@/lib/email";
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,38 +16,49 @@ export async function POST(request: NextRequest) {
     // In production, you'd query a database here to validate the certificate.
     // For now, we send an acknowledgement email.
 
+    // Build user confirmation email
     const html = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <div style="background: linear-gradient(135deg, #f59e0b, #d97706); padding: 24px; border-radius: 12px 12px 0 0;">
-          <h1 style="color: white; margin: 0; font-size: 20px;">Certificate Validation Request</h1>
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        ${emailHeader("Certificate Validation in Progress", "linear-gradient(135deg, #f59e0b, #d97706)")}
+        <div style="padding: 24px;">
+          <p style="margin: 0 0 16px 0; color: #374151;">We've received your certificate validation request and our team is on it.</p>
+
+          <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px; border-radius: 0 8px 8px 0; margin: 16px 0;">
+            <p style="margin: 0 0 8px 0; font-weight: 600; color: #92400e; font-size: 14px;">Request Details</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+              <tr><td style="padding: 4px 0; color: #6b7280; width: 130px;">Certificate ID:</td><td style="padding: 4px 0; color: #374151; font-weight: 600;">${certificateId}</td></tr>
+              <tr><td style="padding: 4px 0; color: #6b7280;">Email:</td><td style="padding: 4px 0; color: #374151;">${email}</td></tr>
+            </table>
+          </div>
+
+          <div style="margin: 20px 0;">
+            <p style="margin: 0 0 10px 0; font-weight: 600; color: #374151;">What Happens Next?</p>
+            <table style="border-collapse: collapse;">
+              <tr><td style="padding: 4px 8px 4px 0; vertical-align: top; color: #f59e0b;">&#10003;</td><td style="padding: 4px 0; color: #4b5563; font-size: 14px;">Our team will verify the certificate against our records</td></tr>
+              <tr><td style="padding: 4px 8px 4px 0; vertical-align: top; color: #f59e0b;">&#10003;</td><td style="padding: 4px 0; color: #4b5563; font-size: 14px;">Validation results will be emailed within <strong>24–48 hours</strong></td></tr>
+              <tr><td style="padding: 4px 8px 4px 0; vertical-align: top; color: #f59e0b;">&#10003;</td><td style="padding: 4px 0; color: #4b5563; font-size: 14px;">For urgent requests, contact us at <strong>+91 9241959311</strong></td></tr>
+            </table>
+          </div>
+
+          <p style="margin: 16px 0 0 0; color: #6b7280; font-size: 14px;">Warm regards,<br/><strong>The North Star Academy Team</strong></p>
         </div>
-        <div style="border: 1px solid #e5e7eb; border-top: none; padding: 24px; border-radius: 0 0 12px 12px;">
-          <p>We've received your certificate validation request.</p>
-          <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
-            <tr><td style="padding: 8px 0; font-weight: bold; width: 140px;">Certificate ID:</td><td style="padding: 8px 0;">${certificateId}</td></tr>
-            <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td style="padding: 8px 0;">${email}</td></tr>
-          </table>
-          <p>Our team will verify this certificate and send you the validation details within 24-48 hours.</p>
-          <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">— The North Star Academy Team</p>
-        </div>
+        ${emailFooter()}
       </div>
     `;
 
-    // Notify admin
+    // Build admin notification email
     const adminEmail = process.env.ADMIN_EMAIL || "connect@northstaronline.in";
     const adminHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <div style="background: linear-gradient(135deg, #f59e0b, #d97706); padding: 24px; border-radius: 12px 12px 0 0;">
-          <h1 style="color: white; margin: 0; font-size: 20px;">Certificate Validation Request</h1>
-        </div>
-        <div style="border: 1px solid #e5e7eb; border-top: none; padding: 24px; border-radius: 0 0 12px 12px;">
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        ${emailHeader("Certificate Validation Request", "linear-gradient(135deg, #f59e0b, #d97706)")}
+        <div style="padding: 24px;">
           <p>A certificate validation has been requested:</p>
           <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
             <tr><td style="padding: 8px 0; font-weight: bold; width: 140px;">Certificate ID:</td><td style="padding: 8px 0;">${certificateId}</td></tr>
             <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td style="padding: 8px 0;">${email}</td></tr>
           </table>
-          <p style="color: #6b7280; font-size: 14px; margin-top: 16px;">— The North Star Academy Team</p>
         </div>
+        ${emailFooter()}
       </div>`;
 
     // Send both emails in parallel instead of sequentially
