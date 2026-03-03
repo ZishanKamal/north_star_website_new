@@ -1,13 +1,32 @@
 import nodemailer from "nodemailer";
+import path from "path";
+import fs from "fs";
 
 // ── Shared email template helpers ──────────────────────────────────
 
-const LOGO_URL = "https://northstaronline.in/brand-logo-header-darkmode.png";
+// CID used to reference the embedded logo inside email HTML
+const LOGO_CID = "brand-logo@northstar";
 
 /**
- * Returns branded email header with logo + title on a gradient banner.
- * @param title  Heading text shown below the logo
- * @param gradient  CSS gradient (default: blue/indigo)
+ * Reads the brand logo from public/ and returns it as a base64 buffer.
+ * Cached after first read so the file isn't re-read on every email.
+ */
+let cachedLogoBuffer: Buffer | null = null;
+function getLogoBuffer(): Buffer | null {
+  if (cachedLogoBuffer) return cachedLogoBuffer;
+  try {
+    const logoPath = path.join(process.cwd(), "public", "brand-logo-header-darkmode.png");
+    cachedLogoBuffer = fs.readFileSync(logoPath);
+    return cachedLogoBuffer;
+  } catch {
+    console.warn("Brand logo not found at public/brand-logo-header-darkmode.png — emails will render without logo");
+    return null;
+  }
+}
+
+/**
+ * Returns branded email header with embedded logo + title on a gradient banner.
+ * The logo references cid:brand-logo@northstar which is attached inline.
  */
 export function emailHeader(
   title: string,
@@ -15,7 +34,7 @@ export function emailHeader(
 ): string {
   return `
     <div style="background: ${gradient}; padding: 28px 24px 20px; border-radius: 12px 12px 0 0; text-align: center;">
-      <img src="${LOGO_URL}" alt="North Star Academy" style="height: 48px; margin-bottom: 14px; display: inline-block;" />
+      <img src="cid:${LOGO_CID}" alt="North Star Academy" style="height: 48px; margin-bottom: 14px; display: inline-block;" />
       <h1 style="color: white; margin: 0; font-size: 18px; font-weight: 600; letter-spacing: 0.3px;">${title}</h1>
     </div>`;
 }
@@ -98,12 +117,25 @@ export async function sendEmail({
   }
 
   try {
+    // Build inline attachments — embed the brand logo so it renders without external URLs
+    const attachments: nodemailer.SendMailOptions["attachments"] = [];
+    const logoBuffer = getLogoBuffer();
+    if (logoBuffer) {
+      attachments.push({
+        filename: "brand-logo.png",
+        content: logoBuffer,
+        cid: LOGO_CID,         // referenced in HTML as cid:brand-logo@northstar
+        contentDisposition: "inline",
+      });
+    }
+
     await transporter.sendMail({
       from,
       to,
       subject,
       html,
       replyTo,
+      attachments,
     });
     return { success: true, mode: "smtp" };
   } catch (error) {
