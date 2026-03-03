@@ -155,16 +155,16 @@ export const statistics = [
 // --- PARTNER LOGOS (Trusted By) ---
 
 export const partners = [
-  { name: "CIT", initials: "CIT", color: "bg-blue-600", logo: "/images/partners/cit.jfif" },
-  { name: "RTCIT", initials: "RTC", color: "bg-orange-600", logo: "/images/partners/rtcit.jfif" },
+  { name: "CIT", initials: "CIT", color: "bg-blue-600", logo: "/images/partners/cit.png" },
+  { name: "RTCIT", initials: "RTC", color: "bg-orange-600", logo: "/images/partners/rtcit.png" },
   { name: "UMU", initials: "UMU", color: "bg-teal-600", logo: "/images/partners/umu.png" },
-  { name: "SBU", initials: "SBU", color: "bg-red-600", logo: "/images/partners/sbu.jfif" },
+  { name: "SBU", initials: "SBU", color: "bg-red-600", logo: "/images/partners/sbu.png" },
   { name: "Doranda College", initials: "DC", color: "bg-green-600", logo: "/images/partners/doranda-college.png" },
   { name: "St Xavier's College", initials: "SXC", color: "bg-indigo-600", logo: "/images/partners/st-xaviers-college.png" },
   { name: "St Anthony's School", initials: "SA", color: "bg-sky-600", logo: "/images/partners/st-anthonys-school.png" },
-  { name: "St Francis School", initials: "SF", color: "bg-purple-600", logo: "/images/partners/st-francis-school.jfif" },
-  { name: "Bishop Westcott Boys' School", initials: "BW", color: "bg-amber-600", logo: "/images/partners/bishop-westcott.jfif" },
-  { name: "Firayalal Public School", initials: "FPS", color: "bg-rose-600", logo: "/images/partners/firayalal-public-school.jfif" },
+  { name: "St Francis School", initials: "SF", color: "bg-purple-600", logo: "/images/partners/st-francis-school.png" },
+  { name: "Bishop Westcott Boys' School", initials: "BW", color: "bg-amber-600", logo: "/images/partners/bishop-westcott.png" },
+  { name: "Firayalal Public School", initials: "FPS", color: "bg-rose-600", logo: "/images/partners/firayalal-public-school.png" },
 ];
 
 // --- TESTIMONIALS ---
